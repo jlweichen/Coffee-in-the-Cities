@@ -1,5 +1,5 @@
 # Coffee in-the Cities
-## Analysis of the battleground between Caribou Coffee and Starbucks
+Analysis of the battleground between Caribou Coffee and Starbucks
 
 ## Introduction
 Though I personally don't drink much coffee, it's hard to argue that there aren't many others who do. There are plenty of options for those who want a sip prepared for them on their way to work, school, or errands. In the Twin Cities, two players have a formidable presence: Caribou Coffee and Starbucks Coffee.
@@ -11,8 +11,8 @@ This chain started in the 90s, and is especially known in the Midwest. Caribou C
 Known worldwide, this is the coffee shop founded in Seattle that made lattes ubiquitous. There's plenty of Starbucks even in the Twin Cities. Starbucks are attached to many Target stores, and with Target being headquartered in the area, many Twin Cities Starbucks are actually licensed locations inside Target stores. For the sake of this analysis I will not differentiate between corporate and licensed stores, but in a future Starbucks-specific analysis, I may.
 
 ## Data
-I used three main sources of data for this analysis. For the <a href = 'https://locations.cariboucoffee.com/'>Caribou Coffee</a> and < a href = "https://www.starbucks.com/store-locator">Starbucks Coffee</a> locations, I used their respective websites. For shapefile and Census data, I used the data portal of the Metropolitan Council.
+I used three main sources of data for this analysis. For the <a href = 'https://locations.cariboucoffee.com/'>Caribou Coffee</a> and <a href ='https://www.starbucks.com/store-locator'>Starbucks Coffee</a> locations, I used their respective websites. For shapefile and Census data, I used the data portal of the Metropolitan Council.
 
 ## Methodology
-The store data was scraped from each store's Store Locator page. I used Python scripts which aggregated the store locator results for each zip code in the metro and collected them into a Pandas dataframe.
-The store data was then joined with the ACS and shapefile data for analysis. I used Geopandas to modify the original zip code shapefiles and join them with the ACS and store data. I joined the store data to the zip code shapefile by the zip code of the store's mailing address. In at least one case, the point location's coordinates fall outside or adjacent to it's mailing address zip code. The only locations with mailing address zip codes not represented by a shapefile are the Starbucks and Caribou stores in Terminal 1 of the Minneapolis-Saint Paul International Airport, which has a USPS zip code 55111.
+The store data was scraped from each store's Store Locator page. I used Python scripts which aggregated the store locator results for each zip code in the metro and collected them into a Pandas dataframe. These scrapers can be found at https://github.com/jlweichen/Coffee-in-the-Cities/tree/master/scrapers.
+The store data was then joined with the ACS and shapefile data for analysis. I used Geopandas to modify the original zip code shapefiles and join them with the ACS and store data. I joined the store data to the zip code shapefile by the zip code of the store's mailing address. In at least one case, the point location's coordinates fall outside or adjacent to the boundaries of its' mailing address zip code. The only locations with mailing address zip codes not represented by a shapefile are the Starbucks and Caribou stores in Terminal 1 of the Minneapolis-Saint Paul International Airport, which has the USPS zip code 55111. Because this zip code is a subset within the boundaries of zip code 55450, I used this zip code to substitute for 55111 for analysis.
