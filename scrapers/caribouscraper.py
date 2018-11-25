@@ -95,3 +95,11 @@ biglist = biglist.drop_duplicates('id')
 # so we substitute zip code 55450 whose shapefile covers the airport
 biglist = biglist.replace(u'55111', u'55450')
 biglist.to_csv(datadir+ "twincitycaribou.csv", index = False)
+
+# creating list of store counts by zip code
+countcol = (biglist['zip code'].value_counts().reset_index())
+countcol.columns = ['zip code', 'count']
+zips = pd.merge(zips, countcol, how='left', on=['zip code'])
+zips = zips.fillna(0)
+# exporting it to CSV
+zips.to_csv(datadir+ "cariboucount.csv", index = False)
