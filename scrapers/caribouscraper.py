@@ -51,7 +51,7 @@ def zipFrame(soupy):
 # importing CSV of Twin Cities zip codes as a list
 
 
-with open('/Users/jennifer/Documents/starbucks/tczips.csv', 'rb') as f:
+with open('~/tczips.csv', 'rb') as f:
     reader = csv.reader(f)
     zips = list(reader)
 
@@ -71,7 +71,7 @@ storeframe = [storeFrame(i)for i in zipsoup]
 storezips = [zipFrame(i) for i in zipsoup]
 
 
-datadir = '/Users/jennifer/Documents/starbucks/data/'
+datadir = '~/data/'
 
 biglist = pd.DataFrame()
 for i in range(0,len(storeframe)):
