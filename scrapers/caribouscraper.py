@@ -38,16 +38,13 @@ def storeFrame(soupy):
     try:
         biglist = storeFind(soupy)
         framey = json.loads(unicode(biglist.text))
-#        framey2 = json.loads(unicode(biglist[1].text))
         return pd.DataFrame(framey['locs'])
-#        return pd.io.json.json_normalize(unicode(biglist.text), errors = 'ignore')
     except:
         return None
 def zipFrame(soupy):
     try:
         framey = zipFind(soupy)
         return framey
-#        return pd.io.json.json_normalize(unicode(biglist.text), errors = 'ignore')
     except:
         return None
 ##############################################################    
