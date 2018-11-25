@@ -2,7 +2,7 @@
 Analysis of the battleground between Caribou Coffee and Starbucks
 
 ## Introduction
-Though I personally don't drink much coffee, it's hard to argue that there aren't many others who do. There are plenty of options for those who want a sip prepared for them on their way to work, school, or errands. In the Twin Cities, two players have a formidable presence: Caribou Coffee and Starbucks Coffee.
+Though I personally don't drink much coffee, it isn't hard to find someone who does. Coffee shops are a daily routine for some, and an occasional treat for others. They cater to students, professionals, travelers, and more with comfortable seating and warm ambiance. There are plenty of options for those who want a sip prepared for them on their way to work, school, or errands. In the Twin Cities, two players have a formidable presence: Caribou Coffee and Starbucks Coffee.
 
 ### Caribou Coffee
 This chain started in the 90s, and is especially known in the Midwest. Caribou Coffee has a huge presence in the Twin Cities, which is not a surprise considering that their first coffee shop was opened in Edina. There are five Caribou Coffee locations within the Mall of America! <a href= "https://locations.cariboucoffee.com/us">However, good luck finding them elsewhere</a>. There are a smattering of locations on the East Coast, mainy in Southern states, but as a native of New Jersey, Caribou struck me as a "foreign" chain. However, we have two Dunkin Donuts in every town, which is a uniquely New England and Mid-Atlantic phenomenon.
