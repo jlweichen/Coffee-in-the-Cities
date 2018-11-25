@@ -5,7 +5,7 @@ Though I personally don't drink much coffee, it isn't hard to find someone who d
 
 ### Caribou Coffee
 This chain started in the 1990s, and is especially known in the Midwest. Caribou Coffee has a huge presence in the Twin Cities, which is not a surprise considering that their first coffee shop opened in Edina. By the way, it's still there on 44th and France.
-If you need further proof of the chain's proliferance, there are five stores at the Mall of America! <a href= "https://locations.cariboucoffee.com/us">However, good luck finding them elsewhere</a>. There are a smattering of locations on the East Coast, mainly in popular Southern cities, but Caribou Coffee is unknown in the Mid-Atlantic and New England states. There currently aren't any international stores.
+If you need further proof of the chain's proliferation in the area, there are five stores at the Mall of America! <a href= "https://locations.cariboucoffee.com/us">However, good luck finding them elsewhere</a>. There are a smattering of locations on the East Coast, mainly in popular Southern cities, but Caribou Coffee is unknown in the Mid-Atlantic and New England states. There currently aren't any international stores.
 
 ### Starbucks Coffee
 Known worldwide, this is the home of Pike Place roast and Pumpkin Spice Lattes. There's plenty of Starbucks locations worldwide, and the Twin Cities has its' fair share.
