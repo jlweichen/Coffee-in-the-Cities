@@ -1,4 +1,3 @@
-
 from bs4 import BeautifulSoup
 import csv
 
@@ -25,7 +24,8 @@ def soupify(zip):
         return
 
 # need coordinates and other data for each store
-# need two sections of the page: <div id="collapse-map"> where the coordinates are held
+# this function needs work
+# need <div id="collapse-map"> where the coordinates are held
 # and "c-address-postal-code" for each store's ZIP
 def storeFind(soup):
     job = soup.find(id="collapse-map")
@@ -38,43 +38,48 @@ def storeFrame(soupy):
     try:
         biglist = storeFind(soupy)
         framey = json.loads(unicode(biglist.text))
+#        framey2 = json.loads(unicode(biglist[1].text))
         return pd.DataFrame(framey['locs'])
+#        return pd.io.json.json_normalize(unicode(biglist.text), errors = 'ignore')
     except:
         return None
 def zipFrame(soupy):
     try:
         framey = zipFind(soupy)
         return framey
+#        return pd.io.json.json_normalize(unicode(biglist.text), errors = 'ignore')
     except:
         return None
 ##############################################################    
 # importing CSV of Twin Cities zip codes as a list
 
 
-with open('~/tczips.csv', 'rb') as f:
+with open('/Users/jennifer/Documents/starbucks/tczips.csv', 'rb') as f:
     reader = csv.reader(f)
     zips = list(reader)
 
 zips = pd.DataFrame(zips)
 zips.columns = ['zip code']
-zips.set_index('zip code')
+
 ##############################################################
-# first a data frame of soup objects for each zip code's results
-zipsoup = [soupify(i)for i in zips]
-# extracting the store coordinates, street addresses
+
+
+# conversion into data frame object
+# now to go through the stores and extract the useful info
+# most important is coords, next important - corp owned or licensed?
+# equipment on site? is it a Reserve store? Drive through?
+# CO - corporate store, LS - licensed store
+zipsoup = [soupify(i)for i in zips['zip code']]
 storeframe = [storeFrame(i)for i in zipsoup]
-# extracting the store zip codes
 storezips = [zipFrame(i) for i in zipsoup]
 
 
-datadir = '~/data/'
-# creating a dataframe to hold all store info
+datadir = '/Users/jennifer/Documents/starbucks/data/'
 
 biglist = pd.DataFrame()
-for i in range(len(storeframe)):
+for i in range(0,len(storeframe)):
     biglist = biglist.append(storeframe[i])
 biglist.index = range(len(biglist))
-
 # making zip code list
 zip_code = []
 for i in range(0,len(storezips)):
@@ -86,15 +91,10 @@ zip_code.columns = ['zip code']
 
 # merging stores and zips 
 biglist = biglist.join(zip_code)
-
-# removing duplicate locations
+# removing duplicate locations - there will be a lot!
 biglist = biglist.drop_duplicates('id')
-# exporting to file
+# cleaning data - zip code 55111 doesn't have a shapefile
+# it is part of the MSP airport
+# so we substitute zip code 55450 whose shapefile covers the airport
+biglist = biglist.replace(u'55111', u'55450')
 biglist.to_csv(datadir+ "twincitycaribou.csv", index = False)
-
-# counting the stores per zip code
-
-countcol = (biglist['zip code'].value_counts().reset_index())
-countcol.columns = ['zip code', 'count']
-zips = pd.merge(zips, countcol, how='left', on=['zip code'])
-zips.to_csv(datadir+ "cariboucount.csv", index = False)
