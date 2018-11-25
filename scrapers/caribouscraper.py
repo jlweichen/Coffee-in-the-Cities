@@ -63,11 +63,11 @@ zips.columns = ['zip code']
 
 # conversion into data frame object
 # now to go through the stores and extract the useful info
-# most important is coords, next important - corp owned or licensed?
-# equipment on site? is it a Reserve store? Drive through?
-# CO - corporate store, LS - licensed store
+
 zipsoup = [soupify(i)for i in zips['zip code']]
+# first runthrough gets the point coordinates, store name, street, town
 storeframe = [storeFrame(i)for i in zipsoup]
+# second runthrough gets the zip code
 storezips = [zipFrame(i) for i in zipsoup]
 
 
