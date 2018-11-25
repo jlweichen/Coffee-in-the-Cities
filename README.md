@@ -1,7 +1,7 @@
 # Coffee in the Cities: Analysis of the Battleground between Caribou Coffee and Starbucks
 
 ## Introduction
-Though I personally don't drink much coffee, it isn't hard to find someone who does. Coffee shops are a daily routine for some, and an occasional treat for others. They cater to students, professionals, travelers, and more with comfortable seating and warm ambiance. There are plenty of options for those who want a sip prepared for them on their way to work, school, or errands. In the Twin Cities, two players have a formidable presence: Caribou Coffee and Starbucks Coffee.
+Though I personally don't drink much coffee, it isn't hard to find someone who does. Coffee shops are an occasional treat for some, and a daily routine for others. They cater to students, professionals, travelers, and more alike with comfortable seating and warm ambiance. There are plenty of options for those who want a sip prepared for them on their way to work, school, or errands. In the Twin Cities, two players have a formidable presence: Caribou Coffee and Starbucks Coffee.
 
 ### Caribou Coffee
 This chain started in the 1990s, and is especially known in the Midwest. Caribou Coffee has a huge presence in the Twin Cities, which is not a surprise considering that their first coffee shop opened in Edina. By the way, it's still there on 44th and France.
