@@ -5,10 +5,12 @@ Though I personally don't drink much coffee, it isn't hard to find someone who d
 
 ### Caribou Coffee
 This chain started in the 1990s, and is especially known in the Midwest. Caribou Coffee has a huge presence in the Twin Cities, which is not a surprise considering that their first coffee shop opened in Edina. By the way, it's still there on 44th and France.
+
 If you need further proof of the chain's proliferation in the area, there are five stores at the Mall of America! <a href= "https://locations.cariboucoffee.com/us">However, good luck finding them elsewhere</a>. There are a smattering of locations on the East Coast, mainly in popular Southern cities, but Caribou Coffee is unknown in the Mid-Atlantic and New England states. There currently aren't any international stores.
 
 ### Starbucks Coffee
 Known worldwide, this is the home of Pike Place roast and Pumpkin Spice Lattes. There's plenty of Starbucks locations worldwide, and the Twin Cities has its' fair share.
+
 Starbucks coffee shops are attached to many Target stores, and with Target being headquartered in the area, there are many Target stores here; thus, many Twin Cities Starbucks are actually licensed locations inside Target stores. This is in addition to other fond Starbucks licensees such as grocery stores, colleges, and airports. For the sake of this analysis I will not differentiate between corporate and licensed stores, but in a future Starbucks-specific analysis, I may.
 
 ## Data
@@ -23,4 +25,6 @@ The store data was scraped from each store's Store Locator page. I used Python s
 I exported the CSV files into QGis and Tableau for exploratory analysis. I joined this data with the ACS and shapefile data to get a cursory glance. Some stores fell on the outer periphery of the search area, and I used QGis's "Clip" function to curtail my analysis only to those stores that fell within one of the zip code areas of interest. I also used QGis to convert my clipped CSV files into shapefiles, which I was able to import into Tableau. With Tableau, I was able to perform more visual analysis, especially with regards to numerical calculations. Using QGis and Tableau also helped me see where my data sets needed cleaning.
 
 ### Step 3: Cleaning Data
-In QGis and Tableau, I joined the store data to the zip code shapefile by the zip code of the store's mailing address. In at least one case, the point location's coordinates fell outside of or adjacent to the boundaries of its' mailing address zip code. The only locations with mailing address zip codes not represented by a shapefile are the Starbucks and Caribou stores in Terminal 1 of the Minneapolis-Saint Paul International Airport, which has the USPS zip code 55111. Because this zip code is a subset within the boundaries of zip code 55450, I used this zip code to substitute for 55111 for analysis and edited my scraper code to reflect this.
+In QGis and Tableau, I joined the store data to the zip code shapefile by the zip code of the store's mailing address. In at least one case, the point location's coordinates fell outside of or adjacent to the boundaries of its' mailing address zip code. The boundary between Edina and Minneapolis and the 55410 zip code was one such area. One Caribou Coffee store in Eden Prairie has its mailing address listed with the zip code 55344, but the store is within the polygon of zip code 55346, the zip code used by many of the neighboring businesses in the same strip mall. While I could have used the functionality of QGis to assign a store's zip code by the polygon in which it fell, I decided to trust the accuracy of the address information culled from the web.
+
+The only locations with mailing address zip codes not represented by a shapefile are the Starbucks and Caribou stores in Terminal 1 of the Minneapolis-Saint Paul International Airport, which has the USPS zip code 55111. Because this zip code is a subset within the boundaries of zip code 55450, I used this zip code to substitute for 55111 for analysis and edited my scraper code to reflect this.
