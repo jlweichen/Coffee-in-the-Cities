@@ -95,6 +95,24 @@ for i in range(0, len(biglist['address.postalCode'])):
 # it is part of the MSP airport
 # so we substitute zip code 55450 whose shapefile covers the airport
 biglist = biglist.replace(u'55111', u'55450')
+
+# selecting only columns of interest
+biglist = biglist[['id', 'city', 'address', 'zip code', 'latitude', 'longitude', 'features', 'name', 'ownership', 'storeNumber']]
+
+# enumerating the features into categorical variables
+for i in range(0, len(biglist['features'])):
+   biglist['features'][i] = eval(str(biglist['features'][i]))
+   for j in range(0, len(biglist['features'][i])):
+       namely = (biglist['features'][i][j]['name'])
+       # checks if this feature has been reported yet at a local store
+       if namely in biglist:
+           biglist[namely][i] = 1
+       # creates column for the feature if it hasn't been seen yet
+       else:
+           biglist[namely]=0
+           biglist[namely][i] = 1
+
+
 biglist.to_csv(datadir+ "twincitysbux.csv", index = False)
 
 # counting the number of stores in each zip code
