@@ -1,17 +1,22 @@
-altTagText,get_directions_url,id,latitude,longitude,type,url,zip code
-"Location at 2360 Badger Drive Hudson, WI",https://maps.google.com/maps?cid=8410330575863002385,8865412,44.96131896972656,-92.72457122802734,main,us/wi/hudson/2360-badger-drive,54016
-"Location at 2351 Coulee Road Hudson, WI",https://maps.google.com/maps?cid=4825222278270236700,8865666,44.964237213134766,-92.72671508789062,main,us/wi/hudson/2351-coulee-road,54016
-"Location at 105 Carmichael Road Hudson, WI",https://maps.google.com/maps?cid=17198061391997776100,8865411,44.9658203125,-92.72196960449219,main,us/wi/hudson/105-carmichael-road,54016
-"Location at 9955 Hudson Place Woodbury, MN",https://maps.google.com/maps?cid=4071521811366183378,8865396,44.94397735595703,-92.90470886230469,main,us/mn/woodbury/9955-hudson-place,55125
-"Location at 8320 City Centre Drive Woodbury, MN",https://maps.google.com/maps?cid=13531349109689672545,8865631,44.920799255371094,-92.93841552734375,main,us/mn/woodbury/8320-city-centre-drive,55125
-"Location at 365 Radio Drive Woodbury, MN",https://maps.google.com/maps?cid=6549564030859698628,8865374,44.94239807128906,-92.93206787109375,main,us/mn/woodbury/365-radio-drive,55125
-"Location at 8360 3rd Street North Oakdale, MN",https://maps.google.com/maps?cid=14450033425509620621,8865394,44.95184326171875,-92.93504333496094,main,us/mn/oakdale/8360-3rd-street-north,55128
-"Location at 303 S Main Street River Falls, WI",https://maps.google.com/maps?cid=6040865191712129780,8865667,44.856651306152344,-92.62748718261719,main,us/wi/river-falls/303-s-main-street,54022
-"Location at 7050 Valley Creek Plaza Woodbury, MN",https://maps.google.com/maps?cid=4473128534194777368,8865630,44.927181243896484,-92.96382141113281,main,us/mn/woodbury/7050-valley-creek-plaza,55125
-"Location at 1005 Eagle Ridge Drive Prescott, WI",https://maps.google.com/maps?cid=7874251470265986953,8865664,44.762550354003906,-92.78936004638672,main,us/wi/prescott/1005-eagle-ridge-drive,54021
-"Location at 1830 Market Drive Stillwater, MN",https://maps.google.com/maps?cid=16536803913817300054,8865377,45.03901672363281,-92.8420639038086,main,us/mn/stillwater/1830-market-drive,55082
-"Location at 7009 10th Street North Oakdale, MN",https://maps.google.com/maps?cid=8707040807119663885,8865395,44.962867736816406,-92.9636001586914,main,us/mn/oakdale/7009-10th-street-north,55128
-"Location at 6014 Highway 36 Oakdale, MN",https://maps.google.com/maps?cid=2029063933212204396,8865399,45.020755767822266,-92.98436737060547,main,us/mn/oakdale/6014-highway-36,55128
-"Location at 209 6th Avenue Northeast Isanti, MN",https://maps.google.com/maps?cid=15392851953842732344,8865676,45.4915771484375,-93.2355728149414,main,us/mn/isanti/209-6th-avenue-northeast,55040
-"Location at 1595 Second Avenue Northeast Cambridge, MN",https://maps.google.com/maps?cid=16877782913827396906,8865450,45.57319641113281,-93.20516967773438,main,us/mn/cambridge/1595-second-avenue-northeast,55008
-"Location at 1966 Bunker Lake Boulevard NW Andover, MN",https://maps.google.com/maps?cid=15330719316004977404,8865454,45.21906280517578,-93.31582641601562,main,us/mn/andover/1966-bunker-lake-boulevard-nw,55304
+address,id,latitude,longitude,city,name,zip code,WiFi,Bagels in the Bou,Nitro on Tap,Order Ahead,Drive-Thru,Catering,Walk-Up Window
+"9955 Hudson Place Woodbury, MN",8865396,44.94397735595703,-92.90470886230469,Woodbury,Woodbury Marketplace,55125,1,1,1,1,0,0,0
+"8320 City Centre Drive Woodbury, MN",8865631,44.920799255371094,-92.93841552734375,Woodbury,Woodbury - City Center Drive,55125,1,0,0,1,0,0,0
+"365 Radio Drive Woodbury, MN",8865374,44.94239807128906,-92.93206787109375,Woodbury,Coffee & Bagels City Place,55125,1,1,0,0,1,1,0
+"7050 Valley Creek Plaza Woodbury, MN",8865630,44.927181243896484,-92.96382141113281,Woodbury,Lunds & Byerlys - Woodbury,55125,0,0,0,0,0,0,0
+"185 Century Ave Woodbury, MN",9061075,44.94615173339844,-92.9838638305664,Woodbury,Coffee & Bagels Woodbury - Century Ave,55125,1,1,1,0,1,0,0
+"8360 3rd Street North Oakdale, MN",8865394,44.95184326171875,-92.93504333496094,Oakdale,Oakdale Village,55128,1,1,0,1,0,0,0
+"7009 10th Street North Oakdale, MN",8865395,44.962867736816406,-92.9636001586914,Oakdale,Bergen Plaza,55128,1,1,1,1,1,0,0
+"6014 Highway 36 Oakdale, MN",8865399,45.020755767822266,-92.98436737060547,Oakdale,Highway 36 & Century,55128,1,1,1,1,1,0,0
+"1830 Market Drive Stillwater, MN",8865377,45.03901672363281,-92.8420639038086,Stillwater,Stillwater - Marketplace III,55082,1,1,0,1,0,0,0
+"1966 Bunker Lake Boulevard NW Andover, MN",8865454,45.21906280517578,-93.31582641601562,Andover,Andover Marketplace East,55304,1,1,0,1,1,0,0
+"12417 Ulysses Street Blaine, MN",8865455,45.196495056152344,-93.23568725585938,Blaine,242 & 65,55434,1,1,0,1,0,0,0
+"3507 Round Lake Boulevard NW Anoka, MN",8865427,45.21760559082031,-93.35823822021484,Anoka,Round Lake Blvd,55303,1,1,0,1,1,0,0
+"14050 St Francis Boulevard Ramsey, MN",8865430,45.225467681884766,-93.39810180664062,Ramsey,Ramsey - St. Francis Blvd,55303,1,1,0,1,1,0,0
+"101 West Main Street Anoka, MN",8865451,45.19953918457031,-93.39286041259766,Anoka,Anoka - West Main,55303,1,1,0,1,1,0,0
+"7988 Sunwood Drive NW Ramsey, MN",8865429,45.235191345214844,-93.4694595336914,Ramsey,Ramsey Town Center,55303,0,1,0,1,1,0,0
+"1835 Gateway Drive Coon Rapids, MN",8865453,45.185333251953125,-93.31321716308594,Coon Rapids,Coon Rapids - Hanson Blvd & Gateway Drive,55433,1,1,0,1,1,0,0
+"2022 Northdale Boulevard Coon Rapids, MN",8865460,45.18049240112305,-93.31802368164062,Coon Rapids,Coon Rapids - Hanson Blvd,55433,1,1,0,1,0,0,0
+"8601 Springbrook Drive Blaine, MN",8865452,45.12626647949219,-93.26636505126953,Blaine,Springbrook,55433,1,1,0,1,0,0,0
+"3536 Main Street Coon Rapids, MN",8865424,45.19697570800781,-93.35545349121094,Coon Rapids,Coon Rapids - Main Street,55448,1,1,0,1,1,0,0
+"400 West 5th Street Northfield, MN",8865580,44.45540237426758,-93.16545104980469,Northfield,Northfield - Shoppes At Westside Plaza,55057,1,1,0,1,0,0,0
+"1823 Market Boulevard Hastings, MN",8865620,44.737030029296875,-92.89374542236328,Hastings,Hastings - Market Blvd,55033,1,1,0,1,1,0,0
