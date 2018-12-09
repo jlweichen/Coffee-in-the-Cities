@@ -96,9 +96,12 @@ for i in range(0, len(biglist['address.postalCode'])):
 # so we substitute zip code 55450 whose shapefile covers the airport
 biglist = biglist.replace(u'55111', u'55450')
 
+# renaming some columns
+biglist = biglist.rename(columns={'coordinates.latitude': 'latitude', 'coordinates.longitude':'longitude', 'ownershipTypeCode':'ownership', 'address.streetAddressLine1':'address', 'address.city':'city'})
 # selecting only columns of interest
 biglist = biglist[['id', 'city', 'address', 'zip code', 'latitude', 'longitude', 'features', 'name', 'ownership', 'storeNumber']]
-
+# making sure only stores with a TC area zip are in the frame
+biglist = biglist.merge(zips, on='zip code', how='inner')
 # enumerating the features into categorical variables
 for i in range(0, len(biglist['features'])):
    biglist['features'][i] = eval(str(biglist['features'][i]))
