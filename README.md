@@ -43,8 +43,7 @@ With clean, formatted data I was able to return to Tableau and join my three dat
 https://public.tableau.com/profile/jennifer5948#!/vizhome/coffeecities/TotalPerZip
 
 This is a workbook in progress, but I've begun making some visualizations. Of note:
-1. There are 210 Caribou Coffee shops in the area of interest, and only 168 Starbucks Coffee shops.
-2. Downtown Minneapolis (55402) has the most coffee shops total (14), with Eden Prairie (55344) right behind it (12).
-
-3. The most lopsided zip codes in favor of Caribou are in St. Paul (55101), Eagan (55121), and Oak Grove (55303) - each containing 4 Caribou Coffee but no Starbucks
-4. The most lopsided zip code in favor of Starbucks is also in Eagan (55122), which contains 5 Starbucks but only 1 Caribou Coffee. This is especially interesting because adjoing zip code 55121 has 4 Caribou Coffee shops and no Starbucks.
+1. There are 210 Caribou Coffee shops in the area of interest, and only 171 Starbucks Coffee shops.
+2. Downtown Minneapolis (55402) has the most coffee shops total (14), with suburban Woodbury (55125) right behind it (12).
+3. The Caribou-only zip codes with the most stores are 55303 in Oak Grove and 55101 in downtown St. Paul, with 4 Caribou and 0 Starbucks.
+4. The Starbucks-only zip code with the most stores is 55104 in St. Paul, with 3 Starbucks and 0 Caribou.
