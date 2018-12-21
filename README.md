@@ -32,12 +32,12 @@ The store data was scraped from each store's Store Locator page. I used Python s
 ### Step 2: Exploratory Analysis - First Round
 I exported the CSV files into QGis and Tableau for exploratory analysis. I joined this data with the ACS and shapefile data to get a cursory glance. Some stores fell on the outer periphery of the search area, and I used QGis's "Clip" function to curtail my analysis only to those stores that fell within one of the zip code areas of interest. I also used QGis to convert my clipped CSV files into shapefiles, which I was able to import into Tableau. With Tableau, I was able to perform more visual analysis, especially with regards to numerical calculations, though initially I had trouble joining the shape files since the ACS shapefile had zip codes formatted as Unicode strings, while the point location shapefiles QGis created set the zip code column to integer by default. Tableau wouldn't join the columns because they were different data types. Using QGis and Tableau also helped me see where my data sets needed cleaning.
 
-### Step 3: Cleaning Data
+### Step 2a: Cleaning Data
 In QGis and Tableau, I originally joined the store data to the zip code shapefile by the zip code of the store's mailing address. In at least one case, the point location's coordinates fell outside of or adjacent to the boundaries of its' mailing address zip code. In some cases, like a Starbucks in St. Paul with a Minneapolis zip code, this was due to a data error. In other cases, typically those on the edge of a zip code area, it is likely due to the difference between the Census defined ZCTA and the zip codes as assigned by the USPS. I originally wanted to use the zip codes as defined by the stores themselves, but due to the number of discrepancies between store mailing zip codes and the ZCTAs in which stores fell, I decided to analyze stores by the ZCTA in which they were located. This required QGis to join the point shapefile to the ZCTA shapefile.
 
 Finally, I had to make sure my zip code data was properly formatted in QGis before attempting to use it in Tableau. By default, QGis converted my zip code data from Unicode to integer. I had to use the "Refactor fields" geoprocessing tool to make sure my zip codes were considered strings before saving my shapefiles.
 
-### Step 4: Exploratory Analysis - Second Round
+### Step 2b: Exploratory Analysis - Second Round
 With clean, formatted data I was able to return to Tableau and join my three data sets - the Census data, the Caribou Coffee data, and the Starbucks data. I've begun making some nice visualizations in Tableau, which can be found here:
 
 https://public.tableau.com/profile/jennifer5948#!/vizhome/coffeecities/TotalPerZip
@@ -47,3 +47,10 @@ This is a workbook in progress, but I've begun making some visualizations. Of no
 2. Downtown Minneapolis (55402) has the most coffee shops total (14), with suburban Woodbury (55125) right behind it (12).
 3. The Caribou-only zip codes with the most stores are 55303 in Oak Grove and 55101 in downtown St. Paul, with 4 Caribou and 0 Starbucks.
 4. The Starbucks-only zip code with the most stores is 55104 in St. Paul, with 3 Starbucks and 0 Caribou.
+
+### Step 3: Machine Learning
+Some ideas for using ML with this data:
+1. Predicting the number of coffee shops in a given zip code based on ACS data
+2. Modelling the coverage of Caribou stores vs Starbucks nearest-neighbor
+3. Given a lat and long pair, determine whether a store location built there will be a Starbucks or Caribou store
+4. Finding zip codes that may offer opportunity to open a new store / underserved markets
