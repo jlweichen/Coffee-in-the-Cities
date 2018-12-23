@@ -1,7 +1,7 @@
 # Coffee in the Cities: Analysis of the Battleground between Caribou Coffee and Starbucks
 
 ## Introduction
-Though I personally don't drink much coffee, it isn't hard to find someone who does. Coffee shops are an occasional treat for some, but are an important daily ritual for others. They cater to students, professionals, travelers, and more alike with comfortable seating and warm ambiance. There are plenty of options for those who want a sip prepared for them on their way to work, school, or errands throughout the Twin Cities, but two players have a formidable presence: Caribou Coffee and Starbucks Coffee. My goals with this project are to:
+Though I personally don't drink much coffee, it isn't hard to find someone who does. Coffee shops are an occasional treat for some, but an important daily ritual for others. They cater to students, professionals, travelers, and more alike with comfortable seating and warm ambiance. There are plenty of options for those who want a sip prepared for them on their way to work, school, or errands throughout the Twin Cities, but two players have a formidable presence: Caribou Coffee and Starbucks Coffee. My goals with this project are to:
 
 1. Collect store location data for both brands
 
@@ -19,7 +19,7 @@ If you need proof of the chain's proliferation in the area, there are five store
 ### Starbucks Coffee
 Known worldwide, Starbucks is the home of Pike Place Roast and the originator of the Pumpkin Spice Latte. Whether you are in the United States or abroad, Starbucks locations are ubiquitous, and the Twin Cities have their fair share.
 
-In addition to corporate-owned stores, many Starbucks coffee shops are licensed. Of note is that Target, headquartered in Minneapolis, <a href = 'https://progressivegrocer.com/dow-jones-target-plans-put-starbucks-coffee-shops-its-stores'>has agreed with Starbucks to open a licensed location in each new Target store since 2002</a>. For the sake of this analysis I will not differentiate between corporate and licensed stores, but in a future Starbucks-specific analysis, I may. <a href = 'https://www.starbucks.com/about-us/company-information'>More info about Starbucks Coffee can be found here</a>.
+In addition to corporate-owned stores, many Starbucks coffee shops are licensed. Of note is that Target, headquartered in Minneapolis, <a href = 'https://progressivegrocer.com/dow-jones-target-plans-put-starbucks-coffee-shops-its-stores'>has agreed with Starbucks to open a licensed location in each new Target store since 2002</a>. For the sake of this analysis I will not differentiate between corporate and licensed stores. <a href = 'https://www.starbucks.com/about-us/company-information'>More info about Starbucks Coffee can be found here</a>.
 
 ## Data
 I used three main sources of data for this analysis. For the <a href = 'https://locations.cariboucoffee.com/'>Caribou Coffee</a> and <a href ='https://www.starbucks.com/store-locator'>Starbucks Coffee</a> locations, I used their respective websites. For the demographic Census data, I used files provided by the <a href='https://metrocouncil.org/Data-and-Maps.aspx'>Metropolitan Council</a> and Minnesota Geospatial Information Office, made available for download through the <a href='https://gisdata.mn.gov'>Minnesota Geospatial Commons</a>. Specifically, I used the <a href = 'https://gisdata.mn.gov/dataset/us-mn-state-metc-society-census-acs'>cleaned American Community Survey 5-Year Summary File</a> provided by the Metro Council, containing the 2013-2017 five-year ACS estimates for more insight on each zip code's population and demographics. For the zip code shapefiles, I downloaded the Census <a href = 'https://gisdata.mn.gov/dataset/bdry-zip-code-tabulation-areas'>TIGER shapefile</a> for Minnesota zip codes, provided by the Minnesota Geospatial Information Office. I limited my analysis to zip code tabulated areas (ZCTAs) which either wholly or partially fall into one of the seven counties considered by the Metropolitan Council - Anoka, Hennepin, Ramsey, Washington, Scott, Dakota, and Carver. Some of these zip codes bleed over into adjacent Minnesota counties, such as Rice County, but none of them cross the river into Wisconsin. This is why some nearby stores in Hudson, WI are not included in this analysis while some Northfield, MN stores are.
@@ -40,7 +40,7 @@ Finally, I had to make sure my zip code data was properly formatted in QGis befo
 ### Step 2b: Exploratory Analysis - Second Round
 With clean, formatted data I was able to return to Tableau and join my three data sets - the Census data, the Caribou Coffee data, and the Starbucks data. I've begun making some nice visualizations in Tableau, which can be found here:
 
-https://public.tableau.com/profile/jennifer5948#!/vizhome/coffeecities/TotalPerZip
+https://public.tableau.com/profile/jennifer5948#!/vizhome/coffeecities/CoffeeintheCities
 
 This is a workbook in progress, but I've begun making some visualizations. Of note:
 1. There are 210 Caribou Coffee shops in the area of interest, and only 171 Starbucks Coffee shops.
