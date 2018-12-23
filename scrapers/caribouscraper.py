@@ -11,48 +11,70 @@ import re
 ##################################################
 # functions!
 
-
-# turn the search page's html into soup for parsing
 def soupify(zip):
     try:     
         baseurl = "https://locations.cariboucoffee.com/index.html?q="
         newurl = baseurl +str(zip)
         html = requests.get(newurl)
-        time.sleep(5)
+        time.sleep(3)
         content = html.content
         return BeautifulSoup(content, 'html5lib')
     except:
         return
 
 # need coordinates and other data for each store
-# this function needs work
 # need <div id="collapse-map"> where the coordinates are held
-# and "c-address-postal-code" for each store's ZIP
-def storeFind(soup):
-    job = soup.find(id="collapse-map")
-    return job
-def zipFind(soup):
-    zippy = soup.find_all(class_ = "c-address-postal-code")
-    return zippy
 
 def storeFrame(soupy):
     try:
-        biglist = storeFind(soupy)
+        biglist = soupy.find(id="collapse-map")
         framey = json.loads(unicode(biglist.text))
         return pd.DataFrame(framey['locs'])
     except:
         return None
-def zipFrame(soupy):
+# the rest of what we want is elsewhere on the page
+# "c-address-postal-code" for town name
+# and "c-address-postal-code" for each store's ZIP
+# finally <div class="Teaser-amenities"> for each store's features
+# each store is a list item
+# for example:
+#<li class="ResultList-item ResultList-item--ordered js-location-result" id="js-yl-8865338">
+
+def addressFrame(soupy):
     try:
-        framey = zipFind(soupy)
-        return framey
+        listing = soupy.find_all(class_ ="Teaser Teaser--locator")
+        store = []
+
+        for i in range(0, len(listing)):
+            zippy = listing[i].find(class_ = "c-address-postal-code")
+            town = listing[i].find(class_ = "c-address-city")
+            name = listing[i].find(class_ = "Teaser-titleLink Link Link--standard Text--bold")
+            name = (name.text).replace('Caribou Coffee ', '')
+            
+            if listing[i].find(class_ = "Teaser-amenities") is not None:
+                features = listing[i].find(class_ = "Teaser-amenities")
+                featList = str(features.text)
+                featList = featList.replace('Amenities: ', '')
+                featList = featList.replace('Wi-Fi' , 'WiFi')
+                featList = re.split(', ', featList)
+                
+                store.append({'city': town.text, 'zip code': zippy.text, 'features': featList, 'name': name})
+            else:
+                featList = ['None']
+                store.append({'city': town.text, 'zip code': zippy.text, 'features': featList, 'name': name})
+            
+            storey = pd.DataFrame(data = store)
+
+        return storey
+
     except:
         return None
+
 ##############################################################    
 # importing CSV of Twin Cities zip codes as a list
 
 
-with open('~/tczips.csv', 'rb') as f:
+with open('~scrapers/data/tczips.csv', 'rb') as f:
     reader = csv.reader(f)
     zips = list(reader)
 
@@ -70,7 +92,7 @@ storeframe = [storeFrame(i)for i in zipsoup]
 # second runthrough gets the zip code and other info
 storeaddress = [addressFrame(i) for i in zipsoup]
 
-datadir = '~/data/'
+datadir = '~scrapers/data/'
 
 biglist = pd.DataFrame()
 for i in range(0,len(storeframe)):
@@ -87,13 +109,6 @@ bigstore.index = range(len(bigstore))
 biglist = biglist.join(bigstore)
 # removing duplicate locations - there will be a lot!
 biglist = biglist.drop_duplicates('id')
-# cleaning data - zip code 55111 doesn't have a shapefile
-# it is part of the MSP airport
-# so we substitute zip code 55450 whose shapefile covers the airport
-biglist = biglist.replace(u'55111', u'55450')
-
-# making sure only stores with a TC area zip are in the frame
-biglist = biglist.merge(zips, on='zip code', how='inner')
 
 # renumber index column
 biglist.index = range(len(biglist))
@@ -114,10 +129,3 @@ for i in range(0, len(biglist['address'])):
     biglist['address'][i] = biglist['address'][i].replace(u'Location at ', u'')
 biglist.to_csv(datadir+ "twincitycaribou.csv", index = False)
 
-# creating list of store counts by zip code
-countcol = (biglist['zip code'].value_counts().reset_index())
-countcol.columns = ['zip code', 'count']
-zips = pd.merge(zips, countcol, how='left', on=['zip code'])
-zips = zips.fillna(0)
-# exporting it to CSV
-zips.to_csv(datadir+ "cariboucount.csv", index = False)
