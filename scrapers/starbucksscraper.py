@@ -1,7 +1,7 @@
 # this parses Starbucks website for location data
 
 from bs4 import BeautifulSoup
-import csv
+
 
 import requests
 import time
@@ -10,8 +10,8 @@ import json
 
 import pandas as pd
 ##################################################
-# authentication of Google Maps AI
-gmaps = googlemaps.Client(key='xxxxxxxxxxxxxxxxxxxxxxxxx')
+# auhtentication of Google Maps AI
+gmaps = googlemaps.Client(key='AIzaSyAdVod7hEcmD_F2QYUR8rNB271Zcob2elY')
 
 ##################################################
 # functions!
@@ -58,12 +58,9 @@ def zipFrame(zip):
 ##############################################################    
 # importing CSV of Twin Cities zip codes as a list
 
-with open('~/tczips.csv', 'rb') as f:
-    reader = csv.reader(f)
-    zips = list(reader)
-    
-zips = pd.DataFrame(zips)
-zips.columns = ['zip code']
+zips = pd.read_csv('~/Documents/cariboucity/sourcegis/myziplist.csv')
+zips['zip code'] = zips['ZCTA5']
+
 
 ##############################################################
 
@@ -77,7 +74,7 @@ zips.columns = ['zip code']
 zipframe = [zipFrame(i)for i in zips['zip code']]
 
 
-datadir = '~/data/'
+datadir = '~/Documents/cariboucity/scrapers/data/'
 
 biglist = pd.DataFrame()
 for i in range(0, len(zipframe)):
@@ -93,15 +90,12 @@ for i in range(0, len(biglist['address.postalCode'])):
     
 # more cleaning data - zip code 55111 doesn't have a shapefile
 # it is part of the MSP airport
-# so we substitute zip code 55450 whose shapefile covers the airport
-biglist = biglist.replace(u'55111', u'55450')
 
 # renaming some columns
 biglist = biglist.rename(columns={'coordinates.latitude': 'latitude', 'coordinates.longitude':'longitude', 'ownershipTypeCode':'ownership', 'address.streetAddressLine1':'address', 'address.city':'city'})
 # selecting only columns of interest
 biglist = biglist[['id', 'city', 'address', 'zip code', 'latitude', 'longitude', 'features', 'name', 'ownership', 'storeNumber']]
-# making sure only stores with a TC area zip are in the frame
-biglist = biglist.merge(zips, on='zip code', how='inner')
+
 # enumerating the features into categorical variables
 for i in range(0, len(biglist['features'])):
    biglist['features'][i] = eval(str(biglist['features'][i]))
@@ -116,13 +110,6 @@ for i in range(0, len(biglist['features'])):
            biglist[namely][i] = 1
 
 
-biglist.to_csv(datadir+ "twincitysbux.csv", index = False)
+import datetime
+biglist.to_csv(datadir+ "twincitysbux" + str(datetime.date.today()) + ".csv", index = False)
 
-# counting the number of stores in each zip code
-countcol = (biglist['zip code'].value_counts().reset_index())
-countcol.columns = ['zip code', 'count']
-zips = pd.merge(zips, countcol, how='left', on=['zip code'])
-zips = zips.fillna(0)
-
-
-zips.to_csv(datadir+ "starbuckscount.csv", index = False)
