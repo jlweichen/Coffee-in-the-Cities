@@ -73,13 +73,13 @@ def addressFrame(soupy):
 ##############################################################    
 # importing CSV of Twin Cities zip codes as a list
 
-
-with open('~scrapers/data/tczips.csv', 'rb') as f:
+'''
+with open('~/Documents/cariboucity/sourcegis/myziplist.csv', 'rb') as f:
     reader = csv.reader(f)
     zips = list(reader)
-
-zips = pd.DataFrame(zips)
-zips.columns = ['zip code']
+'''
+zips = pd.read_csv('~/Documents/cariboucity/sourcegis/myziplist.csv')
+zips['zip code'] = zips['ZCTA5']
 
 ##############################################################
 
@@ -92,7 +92,8 @@ storeframe = [storeFrame(i)for i in zipsoup]
 # second runthrough gets the zip code and other info
 storeaddress = [addressFrame(i) for i in zipsoup]
 
-datadir = '~scrapers/data/'
+datadir = '~/Documents/cariboucity/scrapers/data/'
+
 
 biglist = pd.DataFrame()
 for i in range(0,len(storeframe)):
@@ -127,5 +128,7 @@ for i in range(0, len(biglist['features'])):
 biglist = biglist.drop(['type', 'get_directions_url', 'url', 'features', 'None'], axis=1)
 for i in range(0, len(biglist['address'])):
     biglist['address'][i] = biglist['address'][i].replace(u'Location at ', u'')
-biglist.to_csv(datadir+ "twincitycaribou.csv", index = False)
+    
+import datetime
+biglist.to_csv(datadir+ "twincitycaribou" + str(datetime.date.today()) + ".csv", index = False)
 
