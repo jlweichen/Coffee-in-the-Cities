@@ -66,6 +66,9 @@ for i in(range(len(zipframe))):
      
 There are 410 stores and only 185 shapefiles/zip codes
 Each store has a zip, but not every zip has a store
+only getting zip code data for Metro Council counties
+however, I am leaving in all stores in case I want to calculate
+average distance, stores in x mile radius, etc.
 '''
 for i in range(len(storepoints)):
     storepoints[i]['zip code'] = 'NaN'
@@ -73,17 +76,9 @@ for i in range(len(storepoints)):
         if zipshape[j].contains(storepoints[i]['point']) == True:
             storepoints[i]['zip code'] = str(zipframe[j]['properties']['ZCTA5'])
 
-# just want stores that fall within a ZCTA
-# turning back to a pandas df to filter out rows that don't have a zip code
-storepoints = pd.DataFrame.from_dict(storepoints)
-storepoints = storepoints[storepoints['zip code']!= 'NaN']
-# back to a list for further geoprocessing
-storepoints = storepoints.to_dict(orient = 'records')
-
-'''
 
 # writing the points to a shapefile
-'''
+
 from fiona import collection
 from fiona.crs import from_epsg
 from shapely.geometry import mapping, shape
