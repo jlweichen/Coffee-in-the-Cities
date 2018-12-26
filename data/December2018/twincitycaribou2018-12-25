@@ -1,0 +1,231 @@
+address,id,latitude,longitude,city,name,zip code,Drive-Thru,Bagels in the Bou,Order Ahead,WiFi,Nitro on Tap,Catering,Walk-Up Window
+"2360 Badger Drive Hudson, WI",8865412,44.96131896972656,-92.72457122802734,Hudson,Hudson Center,54016,1,1,1,0,0,0,0
+"2351 Coulee Road Hudson, WI",8865666,44.964237213134766,-92.72671508789062,Hudson,Family Fresh Market - Hudson,54016,0,0,0,0,0,0,0
+"105 Carmichael Road Hudson, WI",8865411,44.9658203125,-92.72196960449219,Hudson,Hudson Marketplace,54016,0,1,1,1,0,0,0
+"9955 Hudson Place Woodbury, MN",8865396,44.94397735595703,-92.90470886230469,Woodbury,Woodbury Marketplace,55125,0,1,1,1,1,0,0
+"8320 City Centre Drive Woodbury, MN",8865631,44.920799255371094,-92.93841552734375,Woodbury,Woodbury - City Center Drive,55125,0,0,1,1,0,0,0
+"365 Radio Drive Woodbury, MN",8865374,44.94239807128906,-92.93206787109375,Woodbury,Coffee & Bagels City Place,55125,1,1,0,1,0,1,0
+"8360 3rd Street North Oakdale, MN",8865394,44.95184326171875,-92.93504333496094,Oakdale,Oakdale Village,55128,0,1,1,1,0,0,0
+"303 S Main Street River Falls, WI",8865667,44.856651306152344,-92.62748718261719,River Falls,Family Fresh Market - River Falls,54022,0,0,0,1,0,0,0
+"7050 Valley Creek Plaza Woodbury, MN",8865630,44.927181243896484,-92.96382141113281,Woodbury,Lunds & Byerlys - Woodbury,55125,0,0,0,0,0,0,0
+"1005 Eagle Ridge Drive Prescott, WI",8865664,44.762550354003906,-92.78936004638672,Prescott,Ptacek's Iga,54021,1,0,0,0,0,0,0
+"1830 Market Drive Stillwater, MN",8865377,45.03901672363281,-92.8420639038086,Stillwater,Stillwater - Marketplace III,55082,0,1,1,1,0,0,0
+"7009 10th Street North Oakdale, MN",8865395,44.962867736816406,-92.9636001586914,Oakdale,Bergen Plaza,55128,1,1,1,1,1,0,0
+"6014 Highway 36 Oakdale, MN",8865399,45.020755767822266,-92.98436737060547,Oakdale,Highway 36 & Century,55128,1,1,1,1,1,0,0
+"7145 East Point Douglas Road South Cottage Grove, MN",8865398,44.83304977416992,-92.96006774902344,Cottage Grove,Cottage Grove - East Point Douglas,55016,0,1,1,1,0,0,0
+"9008 Cahill Avenue Inver Grove Heights, MN",8865380,44.81909942626953,-93.03863525390625,Inver Grove Heights,Inver Grove Heights - Cahill & Concord,55076,1,1,1,1,0,0,0
+"1823 Market Boulevard Hastings, MN",8865620,44.73701477050781,-92.89376068115234,Hastings,Hastings - Market Blvd,55033,1,1,1,1,0,0,0
+"5763 Blaine Avenue Inver Grove Heights, MN",8865386,44.86583709716797,-93.05611419677734,Inver Grove Heights,Inver Grove Heights - Upper 55th & Blaine,55076,1,1,1,1,0,0,0
+"730 Apollo Drive Lino Lakes, MN",8865402,45.18236541748047,-93.10789489746094,Lino Lakes,Lino Lakes - Apollo Drive,55014,1,1,1,1,0,0,0
+"4345 Pheasant Ridge Drive Blaine, MN",8865456,45.163597106933594,-93.159912109375,Blaine,Lexington & I-35,55449,0,1,1,0,0,0,0
+"12417 Ulysses Street Blaine, MN",8865455,45.196495056152344,-93.23568725585938,Blaine,242 & 65,55434,0,1,1,1,0,0,0
+"4733 Highway 61 White Bear Lake, MN",8865375,45.08517837524414,-93.0108642578125,White Bear Lake,Coffee & Bagels White Bear Lake,55110,1,1,0,1,0,1,0
+"4630 Centerville Road White Bear Lake, MN",10853384,45.081390380859375,-93.05542755126953,White Bear Lake,Lunds & Byerlys - White Bear Lake,55110,0,0,0,1,0,0,0
+"1080 Highway 96 White Bear Lake, MN",8865376,45.0786247253418,-93.05463409423828,White Bear Lake,White Bear Lake - 35 & 96,55127,1,1,1,1,0,0,0
+"112 Chieftain Street Osceola, WI",8865665,45.32024383544922,-92.70403289794922,Osceola,Dick's Fresh Market - Osceola,54020,0,0,0,1,0,0,0
+"10400 Baltimore Street Blaine, MN",8865459,45.159244537353516,-93.23424530029297,Blaine,Blaine - 105th Avenue NE,55449,1,1,1,1,0,0,0
+"113 Village Center Drive North Oaks, MN",8865621,45.08014678955078,-93.11473846435547,North Oaks,North Oaks,55127,0,0,1,1,0,0,0
+"8200 Coral Sea Street NE St.Paul, MN",8865679,45.118675231933594,-93.19925689697266,St.Paul,Medtronic - Not open to the public,55112,0,0,1,0,0,0,0
+"3868 150th Street West Rosemount, MN",8865373,44.73123550415039,-93.14366149902344,Rosemount,Rosemount Commons,55068,1,1,1,1,0,0,0
+"610 Opperman Drive Eagan, MN",8865629,44.824974060058594,-93.11298370361328,Eagan,Thomson Reuters,55123,0,0,1,0,0,0,0
+"2900 Ames Crossing Road Eagan, MN",10919820,44.85111999511719,-93.10858917236328,Eagan,Prime Therapeutics,55121,0,0,0,0,0,0,0
+"3405 Promenade Avenue Eagan, MN",8865379,44.83296585083008,-93.15361785888672,Eagan,Coffee & Bagels City Vue Commons,55121,1,1,0,1,0,1,0
+"2751 County Road E White Bear Lake, MN",8865385,45.0506591796875,-92.9856948852539,White Bear Lake,Coffee & Bagels White Bear Lake - Century and County Road E,55110,1,1,0,1,0,1,0
+"3100 White Bear Avenue North Maplewood, MN",8865401,45.03533935546875,-93.01705932617188,Maplewood,Maplewood - White Bear Ave,55109,1,1,1,1,1,0,0
+"3001 White Bear Avenue Maplewood, MN",8865400,45.03169631958008,-93.02195739746094,Maplewood,Maplewood Mall,55109,0,1,0,1,0,0,0
+"185 Century Ave Woodbury, MN",9061075,44.94615173339844,-92.9838638305664,Woodbury,Coffee & Bagels Woodbury - Century Ave,55125,1,1,0,1,1,0,0
+"110 West 4th Street New Richmond, WI",8865663,45.11869812011719,-92.53868865966797,New Richmond,Family Fresh Market - New Richmond,54017,0,0,0,0,0,0,0
+"1193 South Robert Street West St. Paul, MN",8865378,44.910213470458984,-93.08123779296875,West St. Paul,West St. Paul - South Robert,55118,1,1,1,1,1,0,0
+"2133 Old Hudson Road St. Paul, MN",8865622,44.9517822265625,-93.01043701171875,St. Paul,Sun Ray Bruegger's Co-Brand,55119,1,0,0,1,0,0,0
+"720 Main Street Mendota Heights, MN",8865403,44.884525299072266,-93.120361328125,Mendota Heights,Mendota Heights Town Center,55118,0,1,1,1,0,0,0
+"2864 Highway 55 Eagan, MN",8865389,44.85398483276367,-93.13114166259766,Eagan,Eagan - Hwy 55,55121,1,1,1,1,0,0,0
+"5911 St. Croix Trail North Branch, MN",8865388,45.510562896728516,-92.98851776123047,North Branch,Coffee & Bagels North Branch,55056,1,1,0,1,0,1,0
+"2515 White Bear Avenue Maplewood, MN",8865397,45.01795196533203,-93.0205307006836,Maplewood,Maple Ridge Shopping Center,55109,0,1,1,1,0,0,0
+"3354 Rice Street Little Canada, MN",8865381,45.04304504394531,-93.10572052001953,Little Canada,Little Canada - Rice Street,55126,1,1,1,1,0,0,0
+"209 6th Avenue Northeast Isanti, MN",8865676,45.4915771484375,-93.2355728149414,Isanti,Coborn's - Isanti,55040,1,0,0,1,0,0,0
+"1595 Second Avenue Northeast Cambridge, MN",8865450,45.57319641113281,-93.20516967773438,Cambridge,Cambridge - 2nd Ave,55008,1,1,1,1,0,0,0
+"1966 Bunker Lake Boulevard NW Andover, MN",8865454,45.21906280517578,-93.31582641601562,Andover,Andover Marketplace East,55304,1,1,1,1,0,0,0
+"3507 Round Lake Boulevard NW Anoka, MN",8865427,45.21760559082031,-93.35823822021484,Anoka,Round Lake Blvd,55303,1,1,1,1,0,0,0
+"14050 St Francis Boulevard Ramsey, MN",8865430,45.225467681884766,-93.39810180664062,Ramsey,Ramsey - St. Francis Blvd,55303,1,1,1,1,0,0,0
+"1835 Gateway Drive Coon Rapids, MN",8865453,45.185333251953125,-93.31321716308594,Coon Rapids,Coon Rapids - Hanson Blvd & Gateway Drive,55433,1,1,1,1,0,0,0
+"3536 Main Street Coon Rapids, MN",8865424,45.19697570800781,-93.35545349121094,Coon Rapids,Coon Rapids - Main Street,55448,1,1,1,1,0,0,0
+"2022 Northdale Boulevard Coon Rapids, MN",8865460,45.18049240112305,-93.31802368164062,Coon Rapids,Coon Rapids - Hanson Blvd,55433,0,1,1,1,0,0,0
+"101 West Main Street Anoka, MN",8865451,45.19953918457031,-93.39286041259766,Anoka,Anoka - West Main,55303,1,1,1,1,0,0,0
+"7988 Sunwood Drive NW Ramsey, MN",8865429,45.235191345214844,-93.4694595336914,Ramsey,Ramsey Town Center,55303,1,1,1,0,0,0,0
+"2585 County Road 10 Mounds View, MN",8865458,45.10774612426758,-93.21228790283203,Mounds View,Mounds View - County Rd 10,55112,1,1,1,1,0,0,0
+"8097 Highway 65 Spring Lake Park, MN",8865457,45.11481475830078,-93.24102020263672,Spring Lake Park,Spring Lake Park - Hwy 65,55432,1,1,1,1,0,0,0
+"19425 Evans Street Northwest Elk River, MN",8865675,45.32335662841797,-93.55934143066406,Elk River,Coborn's - Elk River,55330,1,0,1,1,0,0,0
+"19260 Freeport Street NW Elk River, MN",8865433,45.3193244934082,-93.56383514404297,Elk River,Elk River - Freeport Street,55330,0,1,1,1,0,0,0
+"18157 Carson Court Elk River, MN",8865415,45.30036544799805,-93.55480194091797,Elk River,Carson Street Station,55330,1,1,1,0,0,0,0
+"703 Northland Drive Princeton, MN",8865426,45.55685043334961,-93.58406829833984,Princeton,Coffee & Bagels Princeton,55371,1,1,0,1,0,1,0
+"3673 Lexington Avenue North Arden Hills, MN",8865384,45.05165481567383,-93.14763641357422,Arden Hills,Arden Hills - Lexington & 694,55126,1,1,1,1,0,0,0
+"2218 County Road D Roseville, MN",8865387,45.03544998168945,-93.19444274902344,Roseville,Roseville - Tower Glen,55112,0,1,1,0,1,0,0
+"13635 Northdale Boulevard Rogers, MN",8865432,45.20189666748047,-93.55523681640625,Rogers,Rogers - I94 and 101,55374,1,1,1,1,0,0,0
+"726 Martin Avenue Big Lake, MN",8865416,45.33426284790039,-93.73472595214844,Big Lake,Big Lake - Town Square,55309,0,1,1,1,0,0,0
+"11008 61st Street Northeast Albertville, MN",8865431,45.239723205566406,-93.66380310058594,Albertville,Albertville - 61st Avenue,55301,1,1,1,1,0,0,0
+"5698 La Centre Avenue NE Albertville, MN",8865678,45.233890533447266,-93.6608657836914,Albertville,Coborn's - Albertville,55301,1,0,0,1,0,0,0
+"1523 7th Street East Monticello, MN",8865419,45.292991638183594,-93.77142333984375,Monticello,Union Crossing,55362,1,1,1,0,0,0,0
+"272 57th Avenue NE Fridley, MN",8865417,45.07130813598633,-93.26683044433594,Fridley,Coffee & Bagels Fridley Market,55432,1,1,0,1,0,1,0
+"2700 39th Avenue NE Minneapolis, MN",8865360,45.03927230834961,-93.2201919555664,Minneapolis,Silver Lake Village,55421,0,1,1,1,0,0,0
+"1180 Shingle Creek Parkway Brooklyn Center, MN",8865446,45.05860137939453,-93.31634521484375,Brooklyn Center,Coffee & Bagels Shingle Creek Crossing,55430,1,1,0,1,0,1,0
+"3900 Lakebreeze Avenue N Brooklyn Center, MN",8865447,45.04384231567383,-93.33049011230469,Brooklyn Center,Brooklyn Center HQ,55429,0,1,1,1,1,0,0
+"1730 New Brighton Boulevard Minneapolis, MN",8865361,45.00566864013672,-93.2280502319336,Minneapolis,Minneapolis - The Quarry,55413,0,1,1,1,1,0,0
+"8559 Edinburgh Centre Drive North Brooklyn Park, MN",8865421,45.11068344116211,-93.30548858642578,Brooklyn Park,Brooklyn Park - Edinburgh Center,55443,0,1,1,1,0,0,0
+"25 University Avenue Southeast Minneapolis, MN",8865607,44.9874382019043,-93.25523376464844,Minneapolis,Lunds & Byerlys - Northeast Minneapolis,55414,0,0,0,0,0,0,0
+"8601 Springbrook Drive Blaine, MN",8865452,45.12626647949219,-93.26636505126953,Blaine,Springbrook,55433,0,1,1,1,0,0,0
+"9638 Colorado Lane North Brooklyn Park, MN",8865436,45.13188934326172,-93.35709381103516,Brooklyn Park,Brooklyn Park - 610 and Zane,55445,1,1,1,1,0,0,0
+"11468 Jefferson Court Champlin, MN",8865423,45.16083526611328,-93.39266967773438,Champlin,Champlin (Hwy 169 & Elm Creek Pkwy),55316,1,1,1,1,0,0,0
+"400 West 5th Street Northfield, MN",8865580,44.45540237426758,-93.16545104980469,Northfield,Northfield - Shoppes At Westside Plaza,55057,0,1,1,1,0,0,0
+"726 Main Street Red Wing, MN",8865619,44.564598083496094,-92.53946685791016,Red Wing,Red Wing - Main St,55066,1,1,1,1,0,0,0
+"17605 Glasgow Avenue Lakeville, MN",8865468,44.694190979003906,-93.215087890625,Lakeville,Lakeville - Cedar & Dodd,55044,0,1,1,1,0,0,0
+"1920 Grant Street NW Faribault, MN",8865571,44.29527282714844,-93.29704284667969,Faribault,Hy-Vee - Faribault,55021,0,0,0,1,0,0,0
+"14638 Cedar Avenue Apple Valley, MN",8865469,44.73643112182617,-93.21703338623047,Apple Valley,Apple Valley - Cedar Avenue,55124,0,1,1,1,1,0,0
+"18444 Kenrick Avenue Lakeville, MN",8865492,44.681758880615234,-93.28812408447266,Lakeville,Lakeville - Timbercrest,55044,0,1,1,1,0,0,0
+"17880 Kenwood Trail Lakeville, MN",9061076,44.689903259277344,-93.28116607666016,Lakeville,Coffee & Bagels Kenwood Trail,55044,1,1,0,1,0,0,0
+"17450 Kenwood Trail Lakeville, MN",8865489,44.69602584838867,-93.2854995727539,Lakeville,Lakeville-Hwy 50,55044,0,1,1,1,0,0,0
+"1100 East County Road 42 Burnsville, MN",8865504,44.737998962402344,-93.25862121582031,Burnsville,Burnsville - Wood Park Crossing,55337,0,1,1,1,0,0,0
+"401 E County Road 42 Burnsville, MN",8865712,44.73859405517578,-93.27022552490234,Burnsville,Lunds & Byerlys - Burnsville,55306,0,0,0,1,0,0,0
+"14204 Burnhaven Drive Burnsville, MN",8865470,44.74413299560547,-93.28914642333984,Burnsville,Burnsville Center,55306,0,1,0,1,0,0,0
+"16731 Highway 13 Prior Lake, MN",8865713,44.70641326904297,-93.42866516113281,Prior Lake,Lunds & Byerlys - Prior Lake,55372,0,0,0,0,0,0,0
+"7745 Egan Drive Savage, MN",8865461,44.74516677856445,-93.37901306152344,Savage,Savage (Cty Rd 42 & 13-Super Target),55378,1,1,1,1,0,0,0
+"1380 Duckwood Drive Eagan, MN",8865404,44.82687759399414,-93.16573333740234,Eagan,Eagan - Duckwood,55123,1,1,1,1,0,0,0
+"1299 Promenade Place Eagan, MN",8865628,44.83631896972656,-93.1583251953125,Eagan,Lunds & Byerlys - Eagan,55121,0,0,0,1,0,0,0
+"2149 Cliff Road Eagan, MN",8865627,44.791114807128906,-93.21724700927734,Eagan,Eagan - Cliff Road,55122,0,0,1,1,0,0,0
+"230 Spring Street St Paul, MN",8865372,44.94004821777344,-93.09980773925781,St Paul,St. Paul - Shepard Road,55102,0,1,1,0,1,0,0
+"2340 West 7th Street St. Paul, MN",8865392,44.903907775878906,-93.16492462158203,St. Paul,St. Paul - West 7th Street,55116,1,1,1,1,1,0,0
+"757 Grand Avenue St. Paul, MN",8865367,44.940185546875,-93.13212585449219,St. Paul,Grand II,55105,0,1,1,1,0,0,0
+"56 East 6th Street St. Paul, MN",8865369,44.94709014892578,-93.09280395507812,St. Paul,Alliance Bank Center,55101,0,1,1,1,0,0,0
+"444 Cedar Street St. Paul, MN",8865368,44.94807434082031,-93.09408569335938,St. Paul,Town Square,55101,0,1,1,0,0,0,0
+"4300 Glumack Drive St. Paul, MN",8865612,44.88054656982422,-93.20089721679688,St. Paul,MSP Airport Terminal 1 - Concourse A - Post-Security,55111,0,0,0,0,0,0,0
+"4300 Glumack Drive St. Paul, MN",8865614,44.88235855102539,-93.21223449707031,St. Paul,MSP Airport Terminal 1 - Concourse G - Post-Security,55111,0,0,0,0,0,0,0
+"4300 Glumack Drive St. Paul, MN",8865615,44.88322448730469,-93.21312713623047,St. Paul,MSP Airport Terminal 1 - Concourse F - Post-Security,55111,0,0,0,0,1,0,0
+"2001 Cliff Road East Burnsville, MN",8865491,44.78965759277344,-93.24540710449219,Burnsville,Burnsville - Town & Country,55337,1,1,1,1,0,0,0
+"60 East Broadway S-380 Bloomington, MN",8865722,44.85459518432617,-93.24246215820312,Bloomington,Mall Of America - 3rd Floor South,55425,0,0,0,1,0,0,0
+"5102 Center Court - Nickelodeon Universe Bloomington, MN",8865723,44.85577392578125,-93.24217224121094,Bloomington,Mall Of America - Nickelodeon Universe,55425,0,0,0,0,0,0,0
+"60 East Broadway N-194 Bloomington, MN",8865485,44.85540008544922,-93.24317169189453,Bloomington,Mall of America - 1st Floor North,55425,0,1,0,1,0,0,0
+"60 East Broadway N-224 Bloomington, MN",8865486,44.85540008544922,-93.24317169189453,Bloomington,Mall of America - 2nd Floor North,55425,0,1,0,1,0,0,0
+"60 East Broadway S-226 Bloomington, MN",8865484,44.85540008544922,-93.24317169189453,Bloomington,Mall of America - South Skyway,55425,0,1,0,0,0,0,0
+"12601 Nicollet Avenue Burnsville, MN",8865490,44.7734375,-93.27711486816406,Burnsville,Burnsville Parkway & Nicollet,55337,0,1,1,1,0,0,0
+"2134 Ford Parkway St. Paul, MN",8865391,44.91741943359375,-93.19100952148438,St. Paul,Highland Park,55116,0,1,1,1,0,0,0
+"1817 Randolph Avenue St. Paul, MN",8865393,44.927330017089844,-93.17687225341797,St. Paul,St. Paul - Randolph & Fairview,55105,0,1,1,1,0,0,0
+"7150 Humphrey Drive Minneapolis, MN",8865610,44.8734016418457,-93.22867584228516,Minneapolis,MSP Airport Terminal 2 - Baggage Claim,55450,0,0,0,0,0,0,0
+"7150 Humphrey Drive Minneapolis, MN",8865613,44.873409271240234,-93.22869873046875,Minneapolis,MSP Airport Terminal 2 - Concourse H - Post-Security,55450,0,0,0,0,0,0,0
+"3835 West Old Shakopee Road Bloomington, MN",8865487,44.81028366088867,-93.32913208007812,Bloomington,France & Old Shakopee,55431,0,1,1,1,0,0,0
+"5159 West 98th Street Bloomington, MN",8865721,44.82386016845703,-93.3494644165039,Bloomington,Lunds & Byerlys - Bloomington,55437,0,0,0,1,0,0,0
+"2400 Mystic Lake Boulevard Prior Lake, MN",8865715,44.730587005615234,-93.47434997558594,Prior Lake,Mystic Lake,55372,0,0,0,1,0,0,0
+"1539 17th Avenue East Shakopee, MN",8865462,44.77417755126953,-93.5040054321289,Shakopee,Shakopee Valley Marketplace,55379,1,1,1,1,0,0,0
+"1361 Heather Street Shakopee, MN",8865471,44.782535552978516,-93.50682067871094,Shakopee,Shakopee - Marschall Road,55379,1,1,1,1,0,0,0
+"1004 Gateway Drive Chaska, MN",8865463,44.803768157958984,-93.57798767089844,Chaska,Chaska - Gateway Drive,55318,1,1,1,0,0,0,0
+"142 Pioneer Trail Chaska, MN",8865464,44.82974624633789,-93.6001205444336,Chaska,Chaska Pioneer,55318,0,1,1,1,0,0,0
+"1 Valleyfair Drive Shakopee, MN",8865717,44.79863357543945,-93.45408630371094,Shakopee,Valleyfair,55379,0,0,0,0,0,0,0
+"8360 Hansen Avenue Shakopee, MN",8865467,44.776611328125,-93.41214752197266,Shakopee,Coffee & Bagels Shakopee Crossing,55379,1,1,0,1,0,1,0
+"920 West 78th Street Chanhassen, MN",8865465,44.86368179321289,-93.54473876953125,Chanhassen,Chanhassen - West 78th Street,55317,0,1,1,1,0,0,0
+"800 West 78th Street Chanhassen, MN",8865710,44.86362838745117,-93.54169464111328,Chanhassen,Lunds & Byerlys - Chanhassen,55317,0,0,0,1,0,0,0
+"77 Highway 5 West Waconia, MN",8865714,44.842872619628906,-93.78720092773438,Waconia,Waconia Bruegger's Bagels Co-Brand,55387,0,0,0,1,0,0,0
+"401 Robert Street St. Paul, MN",8865371,44.94865036010742,-93.09229278564453,St. Paul,Securian Financial,55101,0,1,1,1,0,0,0
+"115 East 10th Street St. Paul, MN",8865618,44.951351165771484,-93.09519958496094,St. Paul,Lunds & Byerlys - Downtown St. Paul,55101,0,0,0,0,0,0,0
+"1055 Grand Avenue St. Paul, MN",8865366,44.94015884399414,-93.14443969726562,St. Paul,Grand I - Oxford,55105,0,1,1,1,0,0,0
+"1720 Rice Street Maplewood, MN",8865383,44.99299240112305,-93.1054916381836,Maplewood,Rice & Larpenteur,55113,1,1,1,0,0,0,0
+"68 Snelling Avenue South St. Paul, MN",8865390,44.93948745727539,-93.16642761230469,St. Paul,St. Paul - Grand & Snelling,55105,0,1,1,1,1,0,0
+"1127 Larpenteur Avenue W Roseville, MN",8865382,44.99270248413086,-93.14762115478516,Roseville,Roseville - Lexington & Larpenteur,55113,0,1,1,1,1,0,0
+"917 Washington Avenue SE Minneapolis, MN",8865345,44.974124908447266,-93.22480773925781,Minneapolis,Stadium Village,55414,0,1,1,0,1,0,0
+"2111 Snelling Avenue North Roseville, MN",8865626,45.004722595214844,-93.16734313964844,Roseville,Har Mar Mall Bruegger's Co-Brand,55113,1,0,0,1,0,0,0
+"604 Washington Ave SE Minneapolis, MN",10128890,44.97346115112305,-93.2298583984375,Minneapolis,Coffee & Bagels Harvard & Washington,55414,0,0,0,1,0,1,1
+"515 Delaware Street SE Minneapolis, MN",8865609,44.97299575805664,-93.23165130615234,Minneapolis,University Of Minnesota - Moos Tower,55455,0,0,0,1,0,0,0
+"1595 MN-36 W Roseville, MN",8865624,45.01274871826172,-93.17233276367188,Roseville,Rosedale Mall,55113,0,0,0,1,0,0,0
+"1925 4th Street S Minneapolis, MN",9990966,44.96958923339844,-93.24459838867188,Minneapolis,UMN - Hanson Hall,55455,0,0,0,0,0,0,0
+"1601 West County Road C Roseville, MN",8865623,45.02194595336914,-93.17064666748047,Roseville,Lunds & Byerlys - Roseville,55113,0,0,0,0,0,0,0
+"2714 Lincoln Drive Roseville, MN",8865625,45.0224723815918,-93.16844940185547,Roseville,Roseville Crossing,55113,0,0,1,1,0,0,0
+"509 Washington Avenue S Minneapolis, MN",8865348,44.978519439697266,-93.26102447509766,Minneapolis,5th & Washington,55415,0,1,1,1,1,0,0
+"550 S 4th Street Minneapolis, MN",8865350,44.9769401550293,-93.26192474365234,Minneapolis,Coffee & Bagels Wells Fargo Tower,55415,0,1,0,1,0,1,0
+"1700 66th Street East Richfield, MN",8865364,44.88389205932617,-93.24974060058594,Richfield,Cedar Point,55423,0,1,1,0,0,0,0
+"1601 E 66th St Richfield, MN",9740254,44.88328552246094,-93.25102996826172,Richfield,Coffee & Bagels 66th & 16th,55423,1,1,0,1,0,1,0
+"12569 Wayzata Boulevard Minnetonka, MN",8865479,44.96800231933594,-93.4371566772461,Minnetonka,Ridgedale Kiosk,55305,0,1,0,1,0,0,0
+"1700 Plymouth Road Minnetonka, MN",8865482,44.96712112426758,-93.44329071044922,Minnetonka,Coffee & Bagels Minnetonka - Plymouth Road,55305,1,1,0,1,0,1,0
+"13081 Ridgedale Drive Minnetonka, MN",8865718,44.96844482421875,-93.44717407226562,Minnetonka,Lunds & Byerlys - Ridgedale,55305,0,0,0,0,0,0,0
+"11210 Wayzata Boulevard Minnetonka, MN",8865480,44.97359085083008,-93.42183685302734,Minnetonka,West Ridge Plaza,55305,0,1,1,1,0,0,0
+"11400 Highway 7 Minnetonka, MN",8865730,44.9339485168457,-93.4258804321289,Minnetonka,Lunds & Byerlys - Hwy 7 Minnetonka,55343,0,0,0,0,0,0,0
+"1601 Highway 7 Hopkins, MN",8865497,44.93369674682617,-93.42017364501953,Hopkins,Hopkins - Highway 7,55305,0,1,1,1,0,0,0
+"1 General Mills Boulevard Golden Valley, MN",8865418,44.976070404052734,-93.39627838134766,Golden Valley,General Mills - Not open to the public,55426,0,1,1,0,0,0,0
+"10160 6th Avenue North Plymouth, MN",8865440,44.98558807373047,-93.40972137451172,Plymouth,Plymouth - Hwy 55 and Revere,55441,0,1,1,1,0,0,0
+"8208 Highway 7 St. Louis Park, MN",8865499,44.9368782043457,-93.38369750976562,St. Louis Park,Knollwood Mall,55426,0,1,1,1,0,0,0
+"1151 East Wayzata Boulevard Wayzata, MN",8865711,44.97242736816406,-93.50025939941406,Wayzata,Lunds & Byerlys - Wayzata,55391,0,0,0,0,0,0,0
+"16393 County Road 30 Maple Grove, MN",8865674,45.12542724609375,-93.48877716064453,Maple Grove,Dunkirk Square Bruegger's Co-Brand,55311,0,0,0,0,0,0,0
+"8073 Wedgewood Lane North Maple Grove, MN",8865438,45.10105514526367,-93.45048522949219,Maple Grove,Wedgewood,55369,0,1,1,1,0,0,0
+"12880 Elm Creek Boulevard Maple Grove, MN",8865677,45.096500396728516,-93.44425964355469,Maple Grove,Lunds & Byerlys - Maple Grove,55369,0,0,0,1,0,0,0
+"11627 Fountains Drive Maple Grove, MN",8865428,45.09303665161133,-93.42736053466797,Maple Grove,Arbor Lakes,55369,0,1,1,1,0,0,0
+"13384 Bass Lake Road Maple Grove, MN",8865681,45.06880187988281,-93.44977569580078,Maple Grove,Bass Lake & 494 with Bruegger's Bagels,55311,1,0,0,1,0,0,0
+"12850 Bass Lake Road Maple Grove, MN",8865444,45.06602096557617,-93.44256591796875,Maple Grove,Bass Lake Road & Sycamore Lane,55369,0,1,1,1,0,0,0
+"8881 Jefferson Highway Osseo, MN",8865437,45.11491012573242,-93.40296936035156,Osseo,Osseo - Jefferson Hwy,55369,1,1,1,1,1,0,0
+"325 Clydesdale Trail Medina, MN",8865435,45.04470443725586,-93.53128051757812,Medina,Clydesdale Marketplace,55340,1,1,1,1,0,0,0
+"7635 Jolly Lane Brooklyn Park, MN",8865422,45.094120025634766,-93.38310241699219,Brooklyn Park,Brooklyn Blvd & 81,55445,0,1,1,1,0,0,0
+"4130 Berkshire Lane Plymouth, MN",8865425,45.030155181884766,-93.45549774169922,Plymouth,Rockford Road,55446,0,1,1,1,0,0,0
+"1400 Babcock Boulevard Delano, MN",8865682,45.03703308105469,-93.76848602294922,Delano,Coborn's - Delano,55328,0,0,0,1,0,0,0
+"5401 Shoreline Drive Mound, MN",8865473,44.93610382080078,-93.66093444824219,Mound,Mound - Shoreline Drive,55364,1,1,1,0,0,0,0
+"701 3rd Avenue NE Buffalo, MN",8865449,45.17939376831055,-93.87240600585938,Buffalo,Coffee & Bagels Buffalo,55313,1,1,0,1,0,1,0
+"2073 West Wayzata Boulevard Long Lake, MN",8865474,44.98818588256836,-93.5787124633789,Long Lake,Long Lake - Wayzata Blvd,55356,1,1,1,1,0,0,0
+"3333 Shoreline Drive Navarre, MN",8865716,44.93391799926758,-93.60877990722656,Navarre,Lunds & Byerlys - Navarre,55391,0,0,0,0,0,0,0
+"5663 Manitou Road Excelsior, MN",8865466,44.90120315551758,-93.58850860595703,Excelsior,Tonka Village,55331,1,1,1,1,0,0,0
+"23520 Highway 7 Shorewood, MN",8865472,44.89277267456055,-93.58002471923828,Shorewood,Shorewood - Hwy 7,55331,0,1,1,1,0,0,0
+"609 East Lake Street Wayzata, MN",8865476,44.969749450683594,-93.51323699951172,Wayzata,Wayzata - East Lake Street,55391,0,1,1,1,1,0,0
+"4754 County Road 101 Minnetonka, MN",8865475,44.9178581237793,-93.50394439697266,Minnetonka,7 HI,55345,1,1,1,1,1,0,0
+"3434 County Road 101 Minnetonka, MN",8865477,44.941070556640625,-93.50279998779297,Minnetonka,Cty Rd 101 & Minnetonka Blvd,55345,1,1,1,0,0,0,0
+"16506 West 78th Street Eden Prairie, MN",8865500,44.86347198486328,-93.48721313476562,Eden Prairie,Eden Prairie - West 78th,55344,0,1,1,1,0,0,0
+"16725 County Road 24 Plymouth, MN",9235536,45.0196418762207,-93.49322509765625,Plymouth,Plymouth Station,55447,0,1,1,1,0,0,0
+"3455 Vicksburg Lane Plymouth, MN",8865673,45.01999282836914,-93.4852523803711,Plymouth,Lunds & Byerlys - Plymouth,55447,0,0,0,1,0,0,0
+"3500 Vicksburg Lane Plymouth, MN",8865445,45.020389556884766,-93.48021697998047,Plymouth,Highway 55 & Vicksburg,55447,0,1,1,1,0,0,0
+"6001 Shady Oak Road Minnetonka, MN",8865498,44.89470291137695,-93.41971588134766,Minnetonka,Shady Oak 2 - Minnetonka Crossings,55343,1,1,1,0,1,0,0
+"11000 Optum Circle Eden Prairie, MN",8865733,44.890663146972656,-93.41683959960938,Eden Prairie,United Health Group - Optum Building - Not open to the public,55344,0,0,0,1,0,0,0
+"9900 Bren Road East Minnetonka, MN",8865732,44.89735412597656,-93.40338897705078,Minnetonka,UHG Bren Road - Not open to the public,55343,0,0,0,0,0,0,0
+"5816 Lincoln Drive Edina, MN",8865501,44.898494720458984,-93.40010070800781,Edina,Highway 169 & Bren,55436,0,1,1,1,0,0,0
+"14444 Excelsior Boulevard Minnetonka, MN",8865502,44.90602493286133,-93.46365356445312,Minnetonka,Glenhaven,55345,0,1,1,1,0,0,0
+"970 Prairie Center Drive Eden Prairie, MN",8865731,44.86518859863281,-93.44255828857422,Eden Prairie,Lunds & Byerlys - Eden Prairie,55344,0,0,0,0,0,0,0
+"11611 Leona Road Eden Prairie, MN",8865503,44.85902404785156,-93.42486572265625,Eden Prairie,Eden Prairie - Leona & Flying Cloud Drive,55344,1,1,1,1,0,0,0
+"13250 Technology Drive Eden Prairie, MN",8865493,44.859230041503906,-93.4424819946289,Eden Prairie,Eden Prairie Transit Station,55344,0,1,1,1,0,0,0
+"8251 Flying Cloud Drive Eden Prairie, MN",8865734,44.85430908203125,-93.42449188232422,Eden Prairie,Eden Prairie Center,55344,0,0,0,1,0,0,0
+"5125 Edina Industrial Boulevard Edina, MN",8865483,44.863487243652344,-93.35382080078125,Edina,Coffee & Bagels Edina-77th,55439,1,1,0,1,0,1,0
+"8000 Norman Center Drive Bloomington, MN",8865478,44.85244369506836,-93.35169219970703,Bloomington,Bloomington - 8000 Tower,55437,0,1,1,1,0,0,0
+"1400 County Road 101 N Plymouth, MN",8865434,44.9945182800293,-93.50108337402344,Plymouth,Highway 6 & 101,55447,0,1,1,1,0,0,0
+"100 South 5th Street Minneapolis, MN",8865346,44.9783935546875,-93.2686538696289,Minneapolis,Minneapolis - 5th Street Towers,55402,0,1,1,1,0,0,0
+"50 South 6 Street Minneapolis, MN",8865357,44.97835159301758,-93.27191162109375,Minneapolis,Fifty South Sixth - Dorsey Tower,55402,0,1,1,1,0,0,0
+"555 Nicollet Mall Minneapolis, MN",8865356,44.97813415527344,-93.27092742919922,Minneapolis,RBC Plaza,55402,0,1,0,1,1,0,0
+"651 Nicollet Mall Minneapolis, MN",8865355,44.977256774902344,-93.27142333984375,Minneapolis,Gaviidae,55402,0,1,1,1,0,0,0
+"501 5th Street North Minneapolis, MN",8865344,44.983726501464844,-93.27882385253906,Minneapolis,Target Field Station,55401,0,1,1,1,1,0,0
+"200 South 6th Street Minneapolis, MN",8865353,44.976924896240234,-93.2678451538086,Minneapolis,US Bank Plaza,55402,0,1,1,1,1,0,0
+"109 South 7th Street Minneapolis, MN",8865347,44.975669860839844,-93.27090454101562,Minneapolis,Baker Center,55402,0,1,1,1,0,0,0
+"800 Nicollet Mall Minneapolis, MN",8865349,44.9759407043457,-93.27369689941406,Minneapolis,US Bancorp,55402,0,1,1,1,0,0,0
+"222 South 9th Street Minneapolis, MN",8865351,44.9737434387207,-93.26995086669922,Minneapolis,Cambell Mithun Tower,55402,0,1,1,1,0,0,0
+"900 2nd Avenue South Minneapolis, MN",8865354,44.973751068115234,-93.27175903320312,Minneapolis,Oracle Centre,55402,0,1,1,0,0,0,0
+"50 South 10th Street Minneapolis, MN",11245879,44.97464370727539,-93.27526092529297,Minneapolis,Retek,55403,0,1,1,0,0,0,0
+"1201 Hennepin Avenue Minneapolis, MN",8865608,44.974300384521484,-93.28069305419922,Minneapolis,Lunds & Byerlys - Downtown Minneapolis,55403,0,0,0,0,0,0,0
+"1100 Nicollet Avenue Minneapolis, MN",8865352,44.97294998168945,-93.27583312988281,Minneapolis,Coffee & Bagels 11th & Nicollet,55403,0,1,0,1,0,1,0
+"2300 Hennepin Avenue Minneapolis, MN",8865358,44.959800720214844,-93.29415130615234,Minneapolis,22nd & Hennepin,55405,0,1,1,1,1,0,0
+"1450 West Lake Street Minneapolis, MN",8865616,44.948673248291016,-93.29991149902344,Minneapolis,Lunds & Byerlys - Uptown Minneapolis,55408,0,0,0,1,0,0,0
+"3044 Excelsior Boulevard Minneapolis, MN",8865341,44.94747543334961,-93.32131958007812,Minneapolis,Lake & Excelsior,55416,0,1,1,1,1,0,0
+"4745 Cedar Avenue South Minneapolis, MN",8865359,44.91657257080078,-93.2469253540039,Minneapolis,Minneapolis - Cedar & Minnehaha,55407,1,1,1,0,1,0,0
+"4606 Nicollet Avenue South Minneapolis, MN",8865362,44.91946029663086,-93.27837371826172,Minneapolis,46th & Nicollet,55419,0,1,1,1,1,0,0
+"4408 France Avenue S Edina, MN",8865729,44.9221076965332,-93.32929992675781,Edina,Edina - 44th And France,55424,0,0,1,1,0,0,0
+"4999 France Avenue South Edina, MN",8865340,44.91331481933594,-93.32879638671875,Edina,50th & France,55410,0,1,1,1,1,0,0
+"3945 West 50th Street Edina, MN",8865726,44.91172409057617,-93.33053588867188,Edina,Lunds & Byerlys - 50th Street Edina,55424,0,0,0,1,0,0,0
+"6228 Penn Avenue South Richfield, MN",8865606,44.88944625854492,-93.3092269897461,Richfield,Lunds & Byerlys - Richfield,55423,0,0,0,1,0,0,0
+"5350 Excelsior Boulevard St. Louis Park, MN",8865727,44.931739807128906,-93.3477554321289,St. Louis Park,Park Village,55416,0,0,1,1,0,0,0
+"3777 Park Center Boulevard St. Louis Park, MN",8865728,44.934993743896484,-93.34675598144531,St. Louis Park,Lunds & Byerlys - St. Louis Park,55416,0,0,0,0,0,0,0
+"5551 West Lake Street St. Louis Park, MN",8865496,44.948299407958984,-93.34996032714844,St. Louis Park,Lake & Minnetonka Boulevard,55416,0,1,1,1,1,0,0
+"5725 Duluth Street Golden Valley, MN",8865680,44.998783111572266,-93.3528060913086,Golden Valley,Lunds & Byerlys - Golden Valley,55422,0,0,0,0,0,0,0
+"5330 Cedar Lake Road St. Louis Park, MN",8865481,44.963035583496094,-93.34794616699219,St. Louis Park,St. Louis Park - Cedar Lake Road,55416,1,1,1,1,1,0,0
+"1650 Park Place Boulevard St Louis Park, MN",8865719,44.96620559692383,-93.34989929199219,St Louis Park,Park Place,55416,0,0,1,1,0,0,0
+"6545 Lyndale Avenue S Richfield, MN",8865363,44.88380813598633,-93.28594207763672,Richfield,Coffee & Bagels Lyndale Station,55423,1,1,0,1,0,1,0
+"6803 York Avenue South Edina, MN",8865495,44.879215240478516,-93.32057189941406,Edina,Yorkdale Shoppes,55435,0,1,1,1,0,0,0
+"7950 Penn Avenue South Bloomington, MN",8865488,44.859283447265625,-93.30948638916016,Bloomington,Penn & 79th,55431,1,1,1,1,1,0,0
+"7601 Penn Avenue S Richfield, MN",8865342,44.86332321166992,-93.30435180664062,Richfield,Best Buy - Cafeteria Kiosk - Not open to the public,55423,0,1,0,0,0,0,0
+"7601 Penn Avenue South Richfield, MN",8865343,44.86373519897461,-93.30574035644531,Richfield,Best Buy - Main Lobby - Not open to the public,55423,0,1,1,0,0,0,0
+"4210 Winnetka Avenue New Hope, MN",8865448,45.03374481201172,-93.37995147705078,New Hope,42nd & Winnetka,55428,0,1,1,1,0,0,0
+"351 Willow Bend Crystal, MN",8865439,45.05439758300781,-93.368896484375,Crystal,Crystal Shopping Center,55428,0,1,1,1,0,0,0
+"9420 36th Avenue North New Hope, MN",8865441,45.02263259887695,-93.39958953857422,New Hope,New Hope - 169 & 36th Avenue,55427,0,1,1,1,0,0,0
+"4345 Nathan Lane North Plymouth, MN",8865442,45.03374481201172,-93.40901184082031,Plymouth,Plymouth - Rockford Road & Nathan Lane,55442,1,1,1,1,0,0,0
+"5184 Southdale Center Edina, MN",8865494,44.88107681274414,-93.3255386352539,Edina,Southdale Cart,55435,0,1,0,1,0,0,0
+"7101 France Avenue S Edina, MN",8865725,44.874412536621094,-93.32807159423828,Edina,Rue De France,55435,0,0,1,1,0,0,0
+"7171 France Avenue S Edina, MN",8865720,44.87361526489258,-93.3283462524414,Edina,Lunds & Byerlys - France Avenue Edina,55435,0,0,0,1,0,0,0
+"2720 Annapolis Circle Plymouth, MN",8865443,45.00930404663086,-93.45059204101562,Plymouth,Plymouth Pointe Plaza,55441,1,1,1,0,0,0,0
+"1100 MN-15 Hutchinson, MN",8865308,44.874549865722656,-94.37629699707031,Hutchinson,Coffee & Bagels Hutchinson,55350,1,1,0,1,0,1,0
+"1020 Hwy 15 South Hutchinson, MN",8865555,44.87751770019531,-94.37923431396484,Hutchinson,Cash Wise - Hutchinson,55350,0,0,0,1,0,0,0
