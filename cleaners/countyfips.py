@@ -10,7 +10,7 @@ datadir = '~/Documents/cariboucity/sourcegis/'
 
 # reading in a copy of Census csv saved to disk
 # to match ZCTA to county
-fun = pd.read_csv(str(datadir+ 'zctatocounty.csv'))
+fun = pd.read_csv(str(datadir+ 'zctatocounty.csv'), dtype={'ZCTA5': 'unicode'})
 # taking only the Minnesota (state number 27)counties from this lengthy file
 minnesota = fun[fun['STATE']==27]
 del(fun)
@@ -21,7 +21,6 @@ counties = pd.DataFrame({'Name': ['Anoka', 'Carver', 'Dakota', 'Hennepin', 'Rams
 metrofips = minnesota.merge(counties, on='COUNTY', how='inner')
 metrofips = metrofips.drop_duplicates()
 fipsofinterest = metrofips[['ZCTA5']].drop_duplicates()
-fipsofinterest = fipsofinterest.astype('unicode')
 metrofips['ZCTA5'] = metrofips['ZCTA5'].astype('unicode')
 
 # taking the zips of interest from a locally saved copy of shapefile:
