@@ -11,7 +11,7 @@ import json
 import pandas as pd
 ##################################################
 # authentication of Google Maps AI
-gmaps = googlemaps.Client(key='')
+gmaps = googlemaps.Client(key='#############')
 
 ##################################################
 # functions!
@@ -89,9 +89,6 @@ biglist.index = range(0, len(biglist))
 # truncating zip codes to 5 digits
 for i in range(0, len(biglist['address.postalCode'])):
     biglist['zip code'][i] = biglist['address.postalCode'][i][0:5]
-    
-# more cleaning data - zip code 55111 doesn't have a shapefile
-# it is part of the MSP airport
 
 # renaming some columns
 biglist = biglist.rename(columns={'coordinates.latitude': 'latitude', 'coordinates.longitude':'longitude',
@@ -116,12 +113,12 @@ for i in range(0, len(biglist['features'])):
 # I know from EDA that there are some stores with incorrect coordinates on the
 # Starbucks website. If those stores are in my file, I will correct them
            
-biglist.loc[biglist['id']==1020164]['latitude'] = 44.948911
-biglist.loc[biglist['id']==1020164]['longitude'] = -93.296083
-biglist.loc[biglist['id']==1022964]['latitude'] = 45.019007
-biglist.loc[biglist['id']==1022964]['longitude'] = -93.325700
-biglist.loc[biglist['id']==1022984]['latitude'] = 45.019689
-biglist.loc[biglist['id']==1022984]['longitude'] = -93.327546
+biglist.loc[biglist['id']=='1020164', 'latitude'] = 44.948911
+biglist.loc[biglist['id']=='1020164', 'longitude'] = -93.296083
+biglist.loc[biglist['id']=='1022964', 'latitude'] = 45.019007
+biglist.loc[biglist['id']=='1022964', 'longitude'] = -93.325700
+biglist.loc[biglist['id']=='1022984', 'latitude'] = 45.019689
+biglist.loc[biglist['id']=='1022984', 'longitude'] = -93.327546
 
 import datetime
 biglist = biglist.drop(['features'], axis=1)
