@@ -1,9 +1,9 @@
-
 import pandas as pd
 
 # reading in the scraped store data
-star = pd.read_csv('~/Documents/cariboucity/scrapers/data/twincitysbux.csv')
-bou = pd.read_csv('~/Documents/cariboucity/scrapers/data/twincitycaribou.csv')
+star = pd.read_csv('/Users/jennifer/Documents/cariboucity/scrapers/data/twincitysbux2018-12-30.csv')
+bou = pd.read_csv('/Users/jennifer/Documents/cariboucity/scrapers/data/twincitycaribou2018-12-30.csv')
+
 
 # I want to join the data from both stores into one frame that has store name (Caribou or Starbucks),
 # store id, and coordinates.
@@ -19,7 +19,7 @@ bou['brand'] = 'Caribou'
 star['brand'] = 'Starbucks'
 # combining all stores into one table, and deleting the two separate tables
 both = bou.append(star)
-del(bou, star)
+#del(bou, star)
 # keeping the brand, latitude, longitude, id, and city information
 both = both[['brand', 'latitude', 'longitude', 'id', 'city']]
 both.index = (range(len(both)))
@@ -34,7 +34,7 @@ from shapely.geometry import Point
 import pyproj
 # oldProj is the projection of the Google web service - how our scraped data was projected
 oldProj = pyproj.Proj(init='epsg:3857')
-# newProj is the GIS projection of the Census shapefiles
+# newProj is the GIS projection of the Census shapefiles, which we edited in countyfips.py
 newProj = pyproj.Proj(init='epsg:26915')
 
 for row in storepoints:
@@ -49,40 +49,43 @@ for row in storepoints:
 
 # first reading zip code shapefile with fiona
 import fiona
-zipframe = fiona.open("~/Documents/cariboucity/sourcegis/edited/tczips/census2010zips.shp",'r')
+zipframe = fiona.open("/Users/jennifer/Documents/cariboucity/sourcegis/edited/tczips/twincitiesmsazips.shp",'r')
 zipshape = range(len(zipframe))
 # converting each polygon/multipolygon from zipshape to a shapely polygon
 from shapely.geometry import shape
 for i in(range(len(zipframe))):
     zipshape[i] = shape(zipframe[i]['geometry'])
 
-'''
 
 # going through each point and seeing where it falls within a polygon
-# id 34 and 42 and 55 are a single polygon each
-     # point 78 should fall in polygon 55
 
-     
-There are 410 stores and only 185 shapefiles/zip codes
-will iterate though stores, stop if/when a zip is found
-'''
+# will iterate though stores/points, and stop if/when a zip is found
+# stores on the periphery likely won't fall within a ZCTA polygon
+
+
 for i in range(len(storepoints)):
     storepoints[i]['zip code'] = 'NaN'
     for j in range(len(zipshape)):
         if zipshape[j].contains(storepoints[i]['point']) == True:
             storepoints[i]['zip code'] = str(zipframe[j]['properties']['ZCTA5'])
-
+            
+      
+# dropping stores outside of the zip codes of interest
+# will briefly make pandas frame
+storepoints = pd.DataFrame(storepoints)
+storepoints = storepoints.loc[storepoints['zip code'] != 'NaN']
+storepoints = storepoints.to_dict(orient = 'records')
 
 # writing the points to a shapefile
 
 from fiona import collection
-from fiona.crs import from_epsg
 from shapely.geometry import mapping, shape
+import datetime
 
 schema1 = { 'geometry': 'Point', 'properties': { 'id': 'int' , 'brand': 'str', 'zip code': 'str','latitude': 'float', 'longitude': 'float', 'city': 'str'} }
 
 with collection(
-    "~/Documents/cariboucity/sourcegis/edited/tczips/myfiona", "w", "ESRI Shapefile", schema = schema1, crs = from_epsg(26915)) as output:
+    "/Users/jennifer/Documents/cariboucity/sourcegis/edited/tczips/stores"+ str(datetime.date.today()), "w", "ESRI Shapefile", schema = schema1, crs = {'init': 'epsg:26915'}) as output:
         for row in storepoints:
             # adding point info to each store in storepoints
             output.write({
@@ -96,8 +99,3 @@ with collection(
                     'city': row['city']
                 }
             })
-    
-# exporting store data to csv archive - will later join this data with ACS data
-storepoints = pd.DataFrame.from_dict(storepoints)
-storepoints = storepoints.drop(labels = 'point', axis=1)
-storepoints.to_csv('~/Documents/cariboucity/scrapers/data/cleanstores.csv')
