@@ -107,8 +107,8 @@ id,city,address,zip code,latitude,longitude,name,ownership,storeNumber,Mobile Pa
 12142,Maple Grove,7979 Wedgewood Lane,55369,45.099604,-93.45016,7979 Wedgewood Lane,CO,2318-2001,1,1,1,0,0,0,1,1,1,1,1,1,1,1,0,0,1,0,0,0
 1020354,Albertville,6415 Labeaux Ave NE,55301,45.246689,-93.666597,Albertville Premium Outlets,LS,53017-283178,1,1,1,0,1,1,0,1,0,0,0,0,1,0,0,0,1,0,0,0
 11921,Minneapolis,5537 W Broadway Ave,55428,45.052521,-93.364575,Target Crystal T-3,LS,76188-88825,1,1,1,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0
-1022964,ROBBINSDALE,3503 Bottineau Blvd,55422,45.026365,-93.338313,Hy-Vee Robbinsdale DT Convenience,LS,52025-277306,0,0,0,0,0,0,1,0,0,0,0,0,1,0,1,0,0,0,0,0
-1022984,ROBBINSDALE,3505 Bottineau Blvd,55422,45.026127,-93.338071,Hy-Vee Robbinsdale,LS,55981-286442,1,0,1,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0
+1022964,ROBBINSDALE,3503 Bottineau Blvd,55422,45.0189698,-93.325765,Hy-Vee Robbinsdale DT Convenience,LS,52025-277306,0,0,0,0,0,0,1,0,0,0,0,0,1,0,1,0,0,0,0,0
+1022984,ROBBINSDALE,3505 Bottineau Blvd,55422,45.0189776,-93.3275013,Hy-Vee Robbinsdale,LS,55981-286442,1,0,1,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0
 1013250,New Hope,8200 42nd Ave N,55427,45.032792,-93.385371,Hy-Vee - New Hope #1,LS,26711-243086,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 17628,Plymouth,4175 Vinewood Lane N,55442,45.031346,-93.451348,Target Plymouth ST-664,LS,72685-76622,1,1,1,0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0
 17376,Monticello,1447 East 7th St,55362,45.293754,-93.773532,Target Monticello T-2180,LS,76730-100251,1,1,1,0,1,1,0,1,0,0,0,1,1,0,0,0,1,0,0,0
