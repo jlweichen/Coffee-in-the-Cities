@@ -54,6 +54,7 @@ This is a workbook in progress, but I've begun making some visualizations. Of no
 2. Downtown Minneapolis (55402) has the most coffee shops total (14), with suburban Woodbury (55125) right behind it (12).
 3. The Caribou-only zip codes with the most stores are 55303 in Oak Grove and 55101 in downtown St. Paul, with 4 Caribou and 0 Starbucks.
 4. The Starbucks-only zip code with the most stores is 55104 in St. Paul, with 3 Starbucks and 0 Caribou.
+5. The two closest-together Starbucks are both at the new Hy-Vee in Robbinsdale. One is a drive-thru store and one is within the grocery store. They are only about 575 feet apart!
 
 ### Step 3: Machine Learning
 Some ideas for using ML with this data:
