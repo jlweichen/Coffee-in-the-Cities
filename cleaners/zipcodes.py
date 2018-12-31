@@ -1,10 +1,3 @@
-#!/usr/bin/env python2
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Dec  9 11:48:31 2018
-
-@author: jennifer
-"""
 # The purpose of this file is to take a shapefile of ZCTAs for Minnesota
 # and extract the zip codes that lie (either wholly or partially) in a county
 # considered part of the Twin Cities metropolitan area by the Census
@@ -43,6 +36,7 @@ wifips = wisconsin.merge(wicounties, on='COUNTY', how='inner')
 both = mnfips.append(wifips)
 del(fun, minnesota, wisconsin, mncounties, wicounties, mnfips, wifips)
 
+# making a list of the zip codes, for use with the scraper files
 metrofips = both.drop_duplicates()
 fipsofinterest = metrofips[['ZCTA5']].drop_duplicates()
 fipsofinterest.index = range(0, len(fipsofinterest))
