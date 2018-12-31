@@ -10,7 +10,7 @@ import json
 
 import pandas as pd
 ##################################################
-# auhtentication of Google Maps AI
+# authentication of Google Maps AI
 gmaps = googlemaps.Client(key='')
 
 ##################################################
