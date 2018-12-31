@@ -27,10 +27,13 @@ I used three main sources of data for this analysis. For the <a href = 'https://
 ## Methodology
 
 ### Overall Workflow
-1. Download data: from census.gov for the ZCTA shapefile, ZCTA to county/state flat file, and Metropolitan Council for the ACS data
-2. Run countyfips.py to create list of zip codes and a shapefile containing the outline of each zip code tabulated area (ZCTA) of interest, which would be those in the MSA counties (changes infrequently - the Census ZCTA shapefiles used for ACS are only updated for the decennial Census, and the MSA was last redefined in 2013)
+1. Download geographic data: 
+ - Census.gov for the ZCTA shapefile, Census block shapefiles, ZCTA to county/state flat file, LODES data
+ - Metropolitan Council for the ACS five year summary data
+2. Run zipcodes.py to create list of zip codes and a shapefile containing the outline of each zip code tabulated area (ZCTA) of interest, which would be those in the MSA counties (changes infrequently - the Census ZCTA shapefiles used for ACS are only updated for the decennial Census, and the MSA was last redefined in 2013)
 3. Run caribouscraper.py and starbucksloc.py to collect the approximately 10 (Caribou) or 50 (Starbucks) closest stores to each zip code, and archive store info (changes frequently - stores close, open, move, etc. Starbucks regularly closes stores for remodeling - these stores don't show up when searching the site.)
 4. Run storeshapefile.py to geoprocess the zip code in which each store lies, and create a shapefile of each store's point location (run whenever store locations are scraped)
+5. Run censusblocks.py to process Census block shapefiles, count number of stores in each block, join LODES and ACS data at block and block group levels respectively
 
 
 ### Step 1: Scraping
