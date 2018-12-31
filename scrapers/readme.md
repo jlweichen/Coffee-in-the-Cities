@@ -1,3 +1,7 @@
 ## Scrapers
 
-I wrote two different scripts to scrape store location data - one for each store's website. I chose BeautifulSoup as the Python library to parse the HTML
+I wrote two different scripts to scrape store location data - one for each store's website. Caribouscraper.py collects store location data for Caribou Coffee, while starbucksscraper.py collects Starbucks store location info. I chose BeautifulSoup as the Python library to parse the HTML, as I've used it previously. Both websites structure their store locator pages differently, so I had to customize the code to each one.
+
+Overall, the Starbucks website lent itself to more detailed scraping, as it returned JSON with a large amount of store details. As pandas works more easily with JSON, this made it simple to convert the data into a dataframe. The Caribou website returned less JSON, and for most details besides store coordinates, I had to extract the text from tags.
+
+As for data cleanliness, I have not made a dedicated effort to checking each of the hundreds of points for accuracy. Through the course of visualizing the data, I have picked up some areas where data errors were noticable. Zip codes were one field where errors were common for both Caribou and Starbucks stores. I decided to forego scraping zip code data, and opted to use GIS to find each store's zip code tabulated area (ZCTA). I didn't notice any blatantly erroneous Caribou store coordinates, but some of the Starbucks stores returned coordinates which placed them deep into residential areas. I used Google Maps to find more accurate coordinates for those stores, then rewrote my scraper code to specifically change the coordinates for them.
