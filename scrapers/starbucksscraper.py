@@ -58,7 +58,7 @@ def zipFrame(zip):
 ##############################################################    
 # importing CSV of Twin Cities zip codes as a list
 
-zips = pd.read_csv('~/Documents/cariboucity/sourcegis/myziplist.csv')
+zips = pd.read_csv('/Users/jennifer/Documents/cariboucity/sourcegis/myziplist.csv')
 zips['zip code'] = zips['ZCTA5']
 
 
@@ -71,10 +71,12 @@ zips['zip code'] = zips['ZCTA5']
 # equipment on site? is it a Reserve store? Drive through?
 # CO - corporate store, LS - licensed store
 
+# zips it won't geocode: 55001, 55032, 55029, 55031, 55085, 55054, 55339, 55366, 56313, 56363, 56028, 54007, 54010, 54014
+
 zipframe = [zipFrame(i)for i in zips['zip code']]
+ 
 
-
-datadir = '~/Documents/cariboucity/scrapers/data/'
+datadir = '/Users/jennifer/Documents/cariboucity/scrapers/data/'
 
 biglist = pd.DataFrame()
 for i in range(0, len(zipframe)):
@@ -92,7 +94,9 @@ for i in range(0, len(biglist['address.postalCode'])):
 # it is part of the MSP airport
 
 # renaming some columns
-biglist = biglist.rename(columns={'coordinates.latitude': 'latitude', 'coordinates.longitude':'longitude', 'ownershipTypeCode':'ownership', 'address.streetAddressLine1':'address', 'address.city':'city'})
+biglist = biglist.rename(columns={'coordinates.latitude': 'latitude', 'coordinates.longitude':'longitude',
+                                  'ownershipTypeCode':'ownership', 'address.streetAddressLine1':'address',
+                                  'address.city':'city'})
 # selecting only columns of interest
 biglist = biglist[['id', 'city', 'address', 'zip code', 'latitude', 'longitude', 'features', 'name', 'ownership', 'storeNumber']]
 
@@ -109,7 +113,16 @@ for i in range(0, len(biglist['features'])):
            biglist[namely]=0
            biglist[namely][i] = 1
 
+# I know from EDA that there are some stores with incorrect coordinates on the
+# Starbucks website. If those stores are in my file, I will correct them
+           
+biglist.loc[biglist['id']==1020164]['latitude'] = 44.948911
+biglist.loc[biglist['id']==1020164]['longitude'] = -93.296083
+biglist.loc[biglist['id']==1022964]['latitude'] = 45.019007
+biglist.loc[biglist['id']==1022964]['longitude'] = -93.325700
+biglist.loc[biglist['id']==1022984]['latitude'] = 45.019689
+biglist.loc[biglist['id']==1022984]['longitude'] = -93.327546
 
 import datetime
+biglist = biglist.drop(['features'], axis=1)
 biglist.to_csv(datadir+ "twincitysbux" + str(datetime.date.today()) + ".csv", index = False)
-
