@@ -107,8 +107,8 @@ id,city,address,zip code,latitude,longitude,name,ownership,storeNumber,Mobile Pa
 12142,Maple Grove,7979 Wedgewood Lane,55369,45.099604,-93.45016,7979 Wedgewood Lane,CO,2318-2001,1,1,1,0,0,0,1,1,1,1,1,1,1,1,0,0,1,0,0,0
 1020354,Albertville,6415 Labeaux Ave NE,55301,45.246689,-93.666597,Albertville Premium Outlets,LS,53017-283178,1,1,1,0,1,1,0,1,0,0,0,0,1,0,0,0,1,0,0,0
 11921,Minneapolis,5537 W Broadway Ave,55428,45.052521,-93.364575,Target Crystal T-3,LS,76188-88825,1,1,1,0,1,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0
-1022964,ROBBINSDALE,3503 Bottineau Blvd,55422,45.026365,-93.338313,Hy-Vee Robbinsdale DT Convenience,LS,52025-277306,0,0,0,0,0,0,1,0,0,0,0,0,1,0,1,0,0,0,0,0
-1022984,ROBBINSDALE,3505 Bottineau Blvd,55422,45.026127,-93.338071,Hy-Vee Robbinsdale,LS,55981-286442,1,0,1,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0
+1022964,ROBBINSDALE,3503 Bottineau Blvd,55422,45.019007,-93.3257,Hy-Vee Robbinsdale DT Convenience,LS,52025-277306,0,0,0,0,0,0,1,0,0,0,0,0,1,0,1,0,0,0,0,0
+1022984,ROBBINSDALE,3505 Bottineau Blvd,55422,45.019689,-93.327546,Hy-Vee Robbinsdale,LS,55981-286442,1,0,1,0,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0
 1013250,New Hope,8200 42nd Ave N,55427,45.032792,-93.385371,Hy-Vee - New Hope #1,LS,26711-243086,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 17628,Plymouth,4175 Vinewood Lane N,55442,45.031346,-93.451348,Target Plymouth ST-664,LS,72685-76622,1,1,1,0,1,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0
 17376,Monticello,1447 East 7th St,55362,45.293754,-93.773532,Target Monticello T-2180,LS,76730-100251,1,1,1,0,1,1,0,1,0,0,0,1,1,0,0,0,1,0,0,0
@@ -135,7 +135,7 @@ id,city,address,zip code,latitude,longitude,name,ownership,storeNumber,Mobile Pa
 14372,Minneapolis,2000 Nicollet Ave.,55404,44.962583,-93.278033,Nicollet & Franklin,CO,8611-92908,1,1,1,0,0,0,0,1,0,1,1,1,1,1,1,0,0,0,0,0
 1010273,Minneapolis,2212 Hennepin Ave,55405,44.960294,-93.293416,22nd & Hennepin - Kenwood Crossing,CO,2452-229484,1,1,1,0,0,0,0,1,1,1,1,1,1,1,0,1,0,0,0,0
 1020027,Minneapolis,2440 Hennepin Ave.,55405,44.95743,-93.295448,Kowalskis Minneapolis- Hennepin,LS,53614-276788,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-1020164,MINNEAPOLIS,1300 W. Lake St.,55408,44.944886,-93.295556,Target Uptown Mpls T-3239,LS,51531-264584,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+1020164,MINNEAPOLIS,1300 W. Lake St.,55408,44.948911,-93.296083,Target Uptown Mpls T-3239,LS,51531-264584,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
 14567,St. Louis Park,4201 Minnetonka Blvd.,55416,44.948179,-93.332989,St. Louis Park-Minnetonka & Hwy 7,CO,10203-99310,1,1,1,0,0,0,1,1,0,1,1,1,1,1,0,0,1,0,0,0
 16830,St Cloud,120 Lincoln Ave SE,56304,45.565417,-94.14532,Target St Cloud East T-930,LS,76223-90370,1,1,1,0,1,1,0,1,0,0,0,0,1,0,0,0,1,0,0,0
 1006976,St. Cloud,2860 W. Division Street,56301,45.552875,-94.19216,"St. Cloud, Division Place",CO,19892-188669,0,1,1,0,0,0,1,1,0,1,1,0,1,0,1,1,0,0,0,0
