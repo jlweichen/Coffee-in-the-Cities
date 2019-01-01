@@ -66,7 +66,7 @@ stores = gpd.read_file("/Users/jennifer/Documents/cariboucity/sourcegis/edited/t
 # creating storecount column in 'both' called 'Coffee'
 # iterating through polygons of the Census blocks
 # will flag 0 if no stores, 1 if there is a store
-# very very few blocks have multiple stores - less than 10 have three or more!
+# very very few blocks have multiple stores less than 10 have three or more
 # at the block level, better off doing some binary prediction like logistic regression
 
 # writing a function that uses the Shapely .contains() method for polygons
@@ -98,16 +98,17 @@ acs = acs.rename(columns={'GEOG_UNIT': 'BLOCK GROUP'})
 # dropping some columns, like those around citizenship, disability, language
 # choosing not to use these in analysis - I'd prefer to look at age, income, housing,
 # education, and race
-acs = acs.drop(['GEOG_LEVEL', 'GEOID', 'GEOID2', 'GEONAME', 'SUMLEV', 'COUNTY', 'GEOCOMP', 'YEAR',
-                'USBORNCIT', 'FORBORNCIT', 'FORBORNNOT', 'CDENOM', 'CDENOM_017',
-                'CDENOM_517', 'CDENOM1864', 'CDENOM65UP', 'ANYDIS', 
-                'ANYDIS_017', 'ANYDIS1864', 'ANYDIS65UP', 'DEAF', 'DEAF_017',
-                'DEAF1864', 'DEAF65UP', 'VISION', 'VISION_017', 'VISION1864', 'VISION65UP',
-                'COGDIS', 'COGDIS_517', 'COGDIS1864', 'COGDIS65UP', 'AMBDIS', 'AMBDIS_517',
-                'AMBDIS1864', 'AMBDIS65UP', 'SELFCARE' , 'SELFCA_517', 'SELFCA1864',
-                'SELFCA65UP', 'INDLIV', 'INDLIV_517', 'INDLIV1864', 'INDLIV65UP',
-                'ENGLISH', 'ESL_VWELL', 'LEP', 'LEP_SPAN', 'LEP_RUSS', 'LEP_CHIN',
-                'LEP_HMONG', 'LEP_VIET', 'LEP_AFRICA'], axis=1)
+acs = acs.drop(['GEOG_LEVEL', 'GEOID', 'BLKGRP', 'GEOID2', 'GEONAME', 'SUMLEV', 'COUNTY',
+                'SOURCE', 'TRACT', 'GEOCOMP', 'YEAR', 'USBORNCIT', 'FORBORNCIT', 
+                'FORBORNNOT', 'CDENOM', 'CDENOM_017', 'CDENOM_517', 'CDENOM1864', 
+                'CDENOM65UP', 'ANYDIS', 'ANYDIS_017', 'ANYDIS1864', 'ANYDIS65UP', 
+                'DEAF', 'DEAF_017', 'DEAF1864', 'DEAF65UP', 'VISION', 'VISION_017',
+                'VISION1864', 'VISION65UP', 'COGDIS', 'COGDIS_517', 'COGDIS1864', 
+                'COGDIS65UP', 'AMBDIS', 'AMBDIS_517','AMBDIS1864', 'AMBDIS65UP',
+                'SELFCARE' , 'SELFCA_517', 'SELFCA1864', 'SELFCA65UP', 'INDLIV',
+                'INDLIV_517', 'INDLIV1864', 'INDLIV65UP', 'ENGLISH', 'ESL_VWELL', 
+                'LEP', 'LEP_SPAN', 'LEP_RUSS', 'LEP_CHIN','LEP_HMONG', 'LEP_VIET', 
+                'LEP_AFRICA'], axis=1)
 
 both=both.merge(acs, on='BLOCK GROUP', how = 'inner')
 
