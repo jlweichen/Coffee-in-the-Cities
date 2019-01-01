@@ -73,11 +73,6 @@ def addressFrame(soupy):
 ##############################################################    
 # importing CSV of Twin Cities zip codes as a list
 
-'''
-with open('~/Documents/cariboucity/sourcegis/myziplist.csv', 'rb') as f:
-    reader = csv.reader(f)
-    zips = list(reader)
-'''
 zips = pd.read_csv('~/Documents/cariboucity/sourcegis/myziplist.csv')
 zips['zip code'] = zips['ZCTA5']
 
