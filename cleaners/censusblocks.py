@@ -21,7 +21,7 @@ datadir = '/Users/jennifer/Documents/cariboucity/sourcegis/'
 # we only want polygons where COUNTYFP10 matches a county in the metro
 minnesota = gpd.read_file('/Users/jennifer/Documents/GIS/GIS data/TIGER/tl_2018_27_tabblock10/tl_2018_27_tabblock10.shp')
 # then filter just for the counties we want
-mncounties = pd.DataFrame({'Name': ['Anoka', 'Carver','Chisago', 'Dakota', 'Hennepin',
+mncounties = pd.DataFrame({'County Name': ['Anoka', 'Carver','Chisago', 'Dakota', 'Hennepin',
                                     'Isanti', 'Le Sueur', 'Mille Lacs', 'Ramsey', 'Scott', 
                                     'Sherburne', 'Sibley', 'Washington', 'Wright'],
                            'COUNTYFP10': ['003', '019', '025', '037', '053', '059', '079', '095', '123', '139', '141', '143', '163', '171']})
@@ -30,16 +30,19 @@ mnfips = minnesota.merge(mncounties, on='COUNTYFP10', how='inner')
 # same thing with Wisconsin state FIPS 55
 
 wisconsin = gpd.read_file('/Users/jennifer/Documents/GIS/GIS data/TIGER/tl_2018_55_tabblock10/tl_2018_55_tabblock10.shp')
-wicounties = pd.DataFrame({'Name': ['Pierce', 'Saint Croix'],
+wicounties = pd.DataFrame({'County Name': ['Pierce', 'Saint Croix'],
                            'COUNTYFP10': ['093', '109']})
 wifips = wisconsin.merge(wicounties, on='COUNTYFP10', how='inner')
-# put them together - now we have all the ZCTAs in the Twin Cities MSA
-# and their tracts
+
+# put them together - now we have all the Census blocks in the Twin Cities MSA
 both = mnfips.append(wifips)
 both.index = range(0, len(both))
-# add a column that has block group
+# add a column that has block group - will need later for ACS data
 both['BLOCK GROUP'] = [i[0:12] for i in both['GEOID10']]
-
+# removing columns that aren't of interest
+both = both.drop(['STATEFP10', 'COUNTYFP10', 'TRACTCE10', 'BLOCKCE10', 'NAME10', 
+                  'MTFCC10', 'FUNCSTAT10', 'ALAND10', 'AWATER10', 'INTPTLAT10', 'INTPTLON10'], axis=1)
+                
 del(minnesota, wisconsin, mncounties, wicounties, mnfips, wifips)
 
 # projection of outgoing shapefile
@@ -53,17 +56,21 @@ both.to_file(datadir+ 'edited/tczips/twincitiesblocks.shp')
 stores = gpd.read_file("/Users/jennifer/Documents/cariboucity/sourcegis/edited/tczips/stores2018-12-31/stores2018-12-31.shp")
 
 # creating storecount column in 'both' 
-both['has coffee'] = 0
+#both['Coffee'] = 0
 # iterating through polygons of the Census blocks
 # will flag 0 if no stores, 1 if there is a store
 # very very few blocks have multiple stores less than 10 have three or more
 # at the block level, better off doing some binary prediction like logistic regression
 
-for i in range(len(both)):
-    for j in range(len(stores)):
-        if (stores['geometry'][j].within(both['geometry'][i])) == True:
-            both['has coffee'][j] = 1
-            break
+def caffeine(x):
+    runs = [x.contains(y) for y in stores['geometry']]
+    if any(runs) == True:
+        return 1
+    else:
+        return 0
+     
+both['Coffee'] = both['geometry'].apply(caffeine)
+
 
 # writing to shapefile
 both.to_file(datadir+ 'edited/tczips/twincitiesblockswithstorecounts.shp')
@@ -71,13 +78,16 @@ both.to_file(datadir+ 'edited/tczips/twincitiesblockswithstorecounts.shp')
 # no longer need block geometry, will drop that
 both = both.drop(['geometry'], axis=1)
                 
-# ACS 5 year summary data by block group - a tract contains multiple block groups,
-# each of which contain one or more blocks
-# this file published by Metropolitan Council and includes counties not part of
-# its 7-county area
+# ACS 5 year summary data by block group - a tract contains one or more block
+# groups, each of which contain one or more blocks.
+# This file is compiled and published by Metropolitan Council, and includes
+# counties outside of its 7-county jurisdiction.
+# Metadata can be found at:
+# ftp://ftp.gisdata.mn.gov/pub/gdrs/data/pub/us_mn_state_metc/society_census_acs/metadata/metadata.html
+
 acs = pd.read_excel('/Users/jennifer/Documents/cariboucity/sourcegis/raw/xlsx_society_census_acs20132017/CensusACSBlockGroup.xlsx',
                     dtype = {'GEOG_UNIT':'unicode', 'TRACT':'unicode'})
-acs = acs.rename(columns={'GEOG_UNIT': 'BLOCK GROUP'})
+acs = acs.rename(columns={'GEOG_UNIT': 'BLOCK GROUP', 'STATE': 'STATEFP10', 'COUNTY': 'COUNTYFP10'})
 # dropping some less useful columns
 acs = acs.drop(['USBORNCIT', 'FORBORNCIT', 'FORBORNNOT', 'CDENOM', 'CDENOM_017',
                 'CDENOM_517', 'CDENOM1864', 'CDENOM65UP', 'ANYDIS', 
@@ -116,4 +126,6 @@ both = both.fillna(0)
 
 # writing machine learning data to csv
 mlfile = both
-mlfile = mlfile.drop(['STATEFP10', 'COUNTYFP10', 'TRACTCE10', 'BLOCKCE10', 'MTFCC10'], axis=1)
+
+mlfile = mlfile.drop(['TRACTCE10', 'BLOCKCE10'], axis=1)
+mlfile.to_csv('/Users/jennifer/Documents/cariboucity/ml.csv')
