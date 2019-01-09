@@ -11,7 +11,7 @@ import json
 import pandas as pd
 ##################################################
 # authentication of Google Maps AI
-gmaps = googlemaps.Client(key='#############')
+gmaps = googlemaps.Client(key='AIzaSyAdVod7hEcmD_F2QYUR8rNB271Zcob2elY')
 
 ##################################################
 # functions!
@@ -59,7 +59,7 @@ def zipFrame(zip):
 # importing CSV of Twin Cities zip codes as a list
 
 zips = pd.read_csv('/Users/jennifer/Documents/cariboucity/sourcegis/myziplist.csv')
-zips['zip code'] = zips['ZCTA5']
+zips = zips.rename({'ZCTA5':'zip code'}, axis = 1)
 
 
 ##############################################################
@@ -72,8 +72,9 @@ zips['zip code'] = zips['ZCTA5']
 # CO - corporate store, LS - licensed store
 
 # zips it won't geocode: 55001, 55032, 55029, 55031, 55085, 55054, 55339, 55366, 56313, 56363, 56028, 54007, 54010, 54014
+# zips: 55001, 55031, 55085, 55150, 55054
 
-zipframe = [zipFrame(i)for i in zips['zip code']]
+zipframe = zips['zip code'].apply(zipFrame)
  
 
 datadir = '/Users/jennifer/Documents/cariboucity/scrapers/data/'
