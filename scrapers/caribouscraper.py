@@ -1,5 +1,4 @@
 from bs4 import BeautifulSoup
-import csv
 
 import requests
 import time
@@ -16,7 +15,7 @@ def soupify(zip):
         baseurl = "https://locations.cariboucoffee.com/index.html?q="
         newurl = baseurl +str(zip)
         html = requests.get(newurl)
-        time.sleep(3)
+        time.sleep(2)
         content = html.content
         return BeautifulSoup(content, 'html5lib')
     except:
@@ -73,21 +72,22 @@ def addressFrame(soupy):
 ##############################################################    
 # importing CSV of Twin Cities zip codes as a list
 
-zips = pd.read_csv('~/Documents/cariboucity/sourcegis/myziplist.csv')
-zips['zip code'] = zips['ZCTA5']
+
+zips = pd.read_csv('/Users/jennifer/Documents/cariboucity/sourcegis/myziplist.csv')
+zips = zips.rename({'ZCTA5':'zip code'}, axis = 1)
 
 ##############################################################
 
 # conversion into data frame object
 # now to go through the stores and extract the useful info
 
-zipsoup = [soupify(i)for i in zips['zip code']]
+zipsoup = zips['zip code'].apply(soupify)
 # first runthrough gets the point coordinates
-storeframe = [storeFrame(i)for i in zipsoup]
+storeframe = zipsoup.apply(storeFrame)
 # second runthrough gets the zip code and other info
-storeaddress = [addressFrame(i) for i in zipsoup]
+storeaddress = zipsoup.apply(addressFrame)
 
-datadir = '~/Documents/cariboucity/scrapers/data/'
+datadir = '/Users/jennifer/Documents/cariboucity/scrapers/data/'
 
 
 biglist = pd.DataFrame()
@@ -121,9 +121,7 @@ for i in range(0, len(biglist['features'])):
            biglist[namely][i] = 1
 
 biglist = biglist.drop(['type', 'get_directions_url', 'url', 'features', 'None'], axis=1)
-for i in range(0, len(biglist['address'])):
-    biglist['address'][i] = biglist['address'][i].replace(u'Location at ', u'')
-    
+biglist['address'] = biglist['address'].apply(lambda x: x.replace(u'Location at ', u''))
+# export to csv
 import datetime
 biglist.to_csv(datadir+ "twincitycaribou" + str(datetime.date.today()) + ".csv", index = False)
-
