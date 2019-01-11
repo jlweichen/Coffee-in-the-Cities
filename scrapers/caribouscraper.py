@@ -7,6 +7,9 @@ import json
 import pandas as pd
 
 import re
+import datetime
+
+datadir = '/Users/jennifer/Documents/cariboucity/scrapers/data/'
 ##################################################
 # functions!
 
@@ -15,7 +18,7 @@ def soupify(zip):
         baseurl = "https://locations.cariboucoffee.com/index.html?q="
         newurl = baseurl +str(zip)
         html = requests.get(newurl)
-        time.sleep(2)
+        time.sleep(0.2)
         content = html.content
         return BeautifulSoup(content, 'html5lib')
     except:
@@ -72,56 +75,75 @@ def addressFrame(soupy):
 ##############################################################    
 # importing CSV of Twin Cities zip codes as a list
 
-
-zips = pd.read_csv('/Users/jennifer/Documents/cariboucity/sourcegis/myziplist.csv')
-zips = zips.rename({'ZCTA5':'zip code'}, axis = 1)
+def zipper(path):
+    zips = pd.read_csv(path, header = 0,  names = {'zip code'})
+    return zips['zip code'].tolist()
 
 ##############################################################
 
 # conversion into data frame object
 # now to go through the stores and extract the useful info
 
-zipsoup = zips['zip code'].apply(soupify)
-# first runthrough gets the point coordinates
-storeframe = zipsoup.apply(storeFrame)
-# second runthrough gets the zip code and other info
-storeaddress = zipsoup.apply(addressFrame)
+def bigframe():
+    zipsoup = map(soupify, zipper('/Users/jennifer/Documents/cariboucity/sourcegis/myziplist.csv'))
+    # first runthrough gets the point coordinates
+    storeframe1 = map(storeFrame, zipsoup)
+    # second runthrough gets the zip code and other info
+    storeframe2 = map(addressFrame, zipsoup)
 
-datadir = '/Users/jennifer/Documents/cariboucity/scrapers/data/'
+    bigpoint = pd.concat(storeframe1).rename(columns = {'altTagText': 'address'})
+    bigpoint.index = range(len(bigpoint))
+    bigaddr = pd.concat(storeframe2)
+    bigaddr.index = range(len(bigaddr))
 
+    # merging stores and zips 
+    bigpoint = bigpoint.join(bigaddr)
+    # removing duplicate locations - there will be a lot!
+    bigpoint = bigpoint.drop_duplicates('id')
 
-biglist = pd.DataFrame()
-for i in range(0,len(storeframe)):
-    biglist = biglist.append(storeframe[i])
-biglist.index = range(len(biglist))
-biglist = biglist.rename(columns = {'altTagText': 'address'})
-
-bigstore = pd.DataFrame()
-for i in range(0,len(storeaddress)):
-    bigstore = bigstore.append(storeaddress[i])
-bigstore.index = range(len(bigstore))
-
-# merging stores and zips 
-biglist = biglist.join(bigstore)
-# removing duplicate locations - there will be a lot!
-biglist = biglist.drop_duplicates('id')
-
-# renumber index column
-biglist.index = range(len(biglist))
+    # renumber index column
+    bigpoint.index = range(len(bigpoint))
+    return bigpoint
 
 # parsing feature list
-for i in range(0, len(biglist['features'])):
-   for j in range(0, len(biglist['features'][i])):
-       namely = biglist['features'][i][j]
-       print('store ' + str(i))
-       if namely in biglist:
-           biglist[namely][i] = 1
-       else:
-           biglist[namely]=0
-           biglist[namely][i] = 1
+def featurizer(table, col):
+    column = table[col]
+    
+    def namer(featurename, i):
+        if featurename in table:
+            table[featurename][i] = 1
+        else:
+            table[featurename]=0
+            table[featurename][i] = 1
+        return
 
-biglist = biglist.drop(['type', 'get_directions_url', 'url', 'features', 'None'], axis=1)
-biglist['address'] = biglist['address'].apply(lambda x: x.replace(u'Location at ', u''))
-# export to csv
-import datetime
-biglist.to_csv(datadir+ "twincitycaribou" + str(datetime.date.today()) + ".csv", index = False)
+    for i in range(0, len(column)):
+        for j in range(0, len(column[i])):
+            feat = column[i][j]
+            namer(feat, i)
+            print('store ' + str(i))      
+    return
+
+def finalframe():
+    big = bigframe()
+    featurizer(big, 'features')
+    big = big.drop(['type', 'get_directions_url', 'url', 'features', 'None'], axis=1)
+    big['address'] = big['address'].apply(lambda x: x.replace(u'Location at ', u''))
+
+    # cleaning city name data
+
+    goodcities = {'St.Paul': 'St. Paul', 'ROBBINSDALE': 'Robbinsdale',
+             'Saint Louis Park': 'St. Louis Park', 'St Louis Park': 'St. Louis Park', 
+             'Saint Paul': 'St. Paul', 'St Paul': 'St. Paul',
+             'COTTAGE GROVE': 'Cottage Grove', 'SHAKOPEE': 'Shakopee', 'MINNEAPOLIS': 'Minneapolis',
+             'SAVAGE': 'Savage', 'NORTHFIELD': 'Northfield'}
+    goodindex = goodcities.keys()
+
+    for i in range(len(goodindex)):
+        big['city'] = big['city'].replace(goodindex[i], goodcities[goodindex[i]])
+    
+    big.to_csv(datadir+ "twincitycaribou2" + str(datetime.date.today()) + ".csv", index = False)
+    return big
+
+# calling the function finalframe()
+# scrapes data and returns a dataframe which archives to a csv file
