@@ -1,63 +1,62 @@
-# My first goal: to read store data, trim only to those stores within a census
-# block group of interest, and spit out two shapefiles:
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+# My goal: to read store data, trim only to those stores within a census
+# block group of interest, spit out two shapefiles:
 # one with store point location data, and one with block group polygons
-# My second goal: to export this data, sans geometry, for machine learning
 
 # first read in some useful libraries
+import datetime
+import sys
+# modules I wrote for reading in the scraped store data
+sys.path.append('~/cariboucity/scrapers')
+import sbuxscraper
+import caribouscraper
+# data science libraries
 import pandas as pd
+import numpy as np
+# GIS libraries
 import geopandas as gpd
-from shapely.geometry import Point, shape
-# pyporj library handles projections
+from shapely.geometry import Point, shape, mapping
 import pyproj
+import fiona
+from fiona import collection
 
-# reading in the scraped store data
-star = pd.read_csv('/Users/jennifer/Documents/cariboucity/scrapers/data/twincitysbux2019-01-08.csv')
-bou = pd.read_csv('/Users/jennifer/Documents/cariboucity/scrapers/data/twincitycaribou2019-01-08.csv')
-
-# first, I'm making sure each row states whether it is Caribou or Starbucks by creating a 'brand' column
-bou['brand'] = 'Caribou'
-star['brand'] = 'Starbucks'
 # combining all stores into one table, and deleting the two separate tables
-both = bou.append(star)
-del(bou, star)
+both = sbuxscraper.starFrame().append(caribouscraper.bouFrame())
+# for this project I am not using store features
 both = both[['id', 'brand', 'latitude', 'longitude', 'address', 'city']]
-both.index = (range(len(both)))
-# must make the data from the 'both' frame into a dictionary for use w Shapely and Fiona,
-# which work better with something resembling GeoJSON
+both.index = range(len(both))
+
+# must make the data from the 'both' frame into a list of dictionaries for use 
+# with Shapely and Fiona, which work better with something resembling GeoJSON
 storepoints = both.to_dict(orient = 'records')
 # oldProj is the projection of the Google web service - how our scraped data was projected
 oldProj = pyproj.Proj(init='epsg:3857')
 # newProj is the GIS projection of the Census shapefiles, which we edited in countyfips.py
 newProj = pyproj.Proj(init='epsg:26915')
 
-for row in storepoints:
-    # adding point info to each store in storepoints
-    # first making sure projection is correct
+def reProjection(row):
+    global oldProj, newProj
     x0, y0 = oldProj(float(row['longitude']), float(row['latitude']))
     x1, y1 = pyproj.transform(oldProj, newProj, x0, y0)
     row['point'] = Point(x1, y1)
-del(x0, y0, x1, y1)
+    return
+map(reProjection, storepoints)
+
 # now to read in the shapefile of Metro Census block groups
-# the one we made in censusmetroblockgroups.py
 # we want to add block group info for a store, based on the polygon it's coords fall into
 # https://automating-gis-processes.github.io/2016/Lesson3-point-in-polygon.html#how-to-check-if-point-is-inside-a-polygon
 # first reading block group shapefile with fiona
 # there are 2,086 block groups between all seven counties
-import fiona
-block = fiona.open("/Users/jennifer/Documents/cariboucity/sourcegis/edited/tcblockgroups/base/twincitiesmetroblockgroups.shp",'r')
-blockshapes = list()
-for i in range(len(block)):
-    blockshapes.append(shape(block[i]['geometry']))
-blockfeatures = list()
-for i in range(len(block)):
-    blockfeatures.append(block[i]['properties'])
+block = fiona.open("~/cariboucity/sourcegis/edited/tcblockgroups/base/twincitiesmetroblockgroups.shp",'r')
+blockshapes = map(lambda x: shape(x['geometry']), block)
+blockfeatures = map(lambda x: (x['properties']), block)
 
 blocks = pd.DataFrame(blockfeatures).join(pd.DataFrame(blockshapes, columns = ['geometry']))
 blocks = blocks.rename(columns={'BLOCK GROU': 'Block Group'})
+
 # going through each point and seeing where it falls within a polygon
-
 # stores on the periphery likely won't fall within a Census block polygon
-
 
 for i in range(len(storepoints)):
     storepoints[i]['Block Group'] = False
@@ -67,21 +66,16 @@ for i in range(len(storepoints)):
 
 # dropping stores outside of the Metropolitan Council area
 # approx. 369 total coffee shops
-# Caribou typically has 205 and Starbucks around 170 but stores close for "refresh"
+# Caribou typically has 205 and Starbucks around 164 but stores close for "refresh"
             
 storepoints = filter(lambda x: bool(x['Block Group']),storepoints)
 
-# writing the points to a shapefile
+# writing the points to their own shapefile
 
-from fiona import collection
-
-from shapely.geometry import mapping, shape
-import datetime
-
-schema1 = { 'geometry': 'Point', 'properties': { 'id': 'str' , 'brand': 'str', 'Block Group': 'str','latitude': 'float', 'longitude': 'float', 'address': 'str','city': 'str'} }
-
+schema1 = { 'geometry': 'Point', 'properties': { 'id': 'str' , 'brand': 'str', 'Block Group': 'str',
+            'latitude': 'float', 'longitude': 'float', 'address': 'str','city': 'str'} }
 with collection(
-    "/Users/jennifer/Documents/cariboucity/sourcegis/edited/stores/metrostores"+ str(datetime.date.today()), 
+    "~/cariboucity/sourcegis/edited/stores/metrostores"+ str(datetime.date.today()), 
     "w", "ESRI Shapefile", schema = schema1, crs = "+proj=utm +zone=15 +ellps=GRS80 +datum=NAD83 +units=m +no_defs" ) as output:
         for row in storepoints:
             # adding point info to each store in storepoints
@@ -97,21 +91,16 @@ with collection(
                     'city': row['city']
                 }
             })
-
-###################################
     
-# Part Two: creating the polygon shapefile with store counts
-
+# converting back to a dataframe
 storepoints = pd.DataFrame(storepoints)
 
 # writing a function that uses the Shapely .contains() method for polygons
+# to add store count for each block group
 def caffeine(x):
     runs = [x.contains(y) for y in storepoints['point']]
     return sum(runs)
-# calling the function on the geometry column of the 'both' dataframe
-# to count the number of coffee shops in a block group
 blocks['Coffee'] = blocks['geometry'].apply(caffeine)
-
 
 # ACS 5 year summary data broken down by block group - a tract contains one or more block
 # groups, each of which contain one or more blocks.
@@ -120,7 +109,7 @@ blocks['Coffee'] = blocks['geometry'].apply(caffeine)
 # Metadata can be found at:
 # ftp://ftp.gisdata.mn.gov/pub/gdrs/data/pub/us_mn_state_metc/society_census_acs/metadata/metadata.html
 
-acs = pd.read_excel('/Users/jennifer/Documents/cariboucity/sourcegis/raw/xlsx_society_census_acs20132017/CensusACSBlockGroup.xlsx',
+acs = pd.read_excel('~/cariboucity/sourcegis/raw/xlsx_society_census_acs20132017/CensusACSBlockGroup.xlsx',
                     dtype = {'GEOG_UNIT':'unicode'})
 acs = acs.rename(columns={'GEOG_UNIT': 'Block Group'})
 # dropping some columns, like those around citizenship, disability, language
@@ -146,7 +135,7 @@ blocks=blocks.merge(acs, on='Block Group', how = 'inner')
 # are also available online.
 # I'm using the WAC datasets from 2015 for Minnesota and Wisconsin
 
-MNlodes = pd.read_csv('/Users/jennifer/Documents/GIS/GIS data/LODES/mn_wac_S000_JT00_2015.csv')
+MNlodes = pd.read_csv('~/GIS/GIS data/LODES/mn_wac_S000_JT00_2015.csv')
 MNlodes.index = range(0, len(MNlodes))
 
 # see https://lehd.ces.census.gov/data/lodes/LODES7/LODESTechDoc7.3.pdf
@@ -180,11 +169,9 @@ blocks = blocks.fillna(0)
 # converting to GeoDataFrame and writing shapefile
 blocks = gpd.GeoDataFrame(blocks, geometry = 'geometry')
 blocks.crs = "+proj=utm +zone=15 +ellps=GRS80 +datum=NAD83 +units=m +no_defs "
-blocks.to_file('/Users/jennifer/Documents/cariboucity/sourcegis/edited/tcblockgroups/twincitiesmetroblockgroupswstorecounts'+ str(datetime.date.today())+'.shp')
+blocks.to_file('~/cariboucity/sourcegis/edited/tcblockgroups/twincitiesmetroblockgroupswstorecounts'+ str(datetime.date.today())+'.shp')
 
-# writing machine learning data to csv
-
+# writing machine learning data to csv - this is the data that will be fed into ML
 # no longer need block geometry, will drop that
-# this is the data that will be fed into ML
 blocks = blocks.drop(['geometry'], axis=1)
-blocks.to_csv('/Users/jennifer/Documents/cariboucity/cleaners/data/mlmetroblockgroup' + str(datetime.date.today())+'.csv', index = False)
+blocks.to_csv('~/cariboucity/ML/data/mlmetroblockgroup' + str(datetime.date.today())+'.csv', index = False)
