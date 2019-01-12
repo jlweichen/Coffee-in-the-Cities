@@ -1,3 +1,4 @@
+
 from bs4 import BeautifulSoup
 
 import requests
@@ -9,7 +10,7 @@ import pandas as pd
 import re
 import datetime
 
-datadir = '/Users/jennifer/Documents/cariboucity/scrapers/data/'
+datadir = '~/cariboucity/scrapers/data/'
 ##################################################
 # functions!
 
@@ -100,7 +101,7 @@ def bigframe():
     bigpoint = bigpoint.join(bigaddr)
     # removing duplicate locations - there will be a lot!
     bigpoint = bigpoint.drop_duplicates('id')
-
+    bigpoint['brand'] = 'Caribou'
     # renumber index column
     bigpoint.index = range(len(bigpoint))
     return bigpoint
@@ -124,11 +125,13 @@ def featurizer(table, col):
             print('store ' + str(i))      
     return
 
-def finalframe():
+# the function that pulls it all together and returns a dataframe
+def bouFrame():
     big = bigframe()
     featurizer(big, 'features')
     big = big.drop(['type', 'get_directions_url', 'url', 'features', 'None'], axis=1)
     big['address'] = big['address'].apply(lambda x: x.replace(u'Location at ', u''))
+    big['brand'] = 'Caribou'
 
     # cleaning city name data
 
@@ -141,9 +144,6 @@ def finalframe():
 
     for i in range(len(goodindex)):
         big['city'] = big['city'].replace(goodindex[i], goodcities[goodindex[i]])
-    
+        
     big.to_csv(datadir+ "twincitycaribou2" + str(datetime.date.today()) + ".csv", index = False)
     return big
-
-# calling the function finalframe()
-# scrapes data and returns a dataframe which archives to a csv file
