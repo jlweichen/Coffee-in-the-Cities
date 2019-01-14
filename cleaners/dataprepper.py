@@ -161,10 +161,8 @@ MNlodes['Block Group'] = [i[0:12] for i in MNlodes['GEOID10']]
 blockgrouptot = MNlodes.groupby('Block Group', as_index = False).sum()
 
 # joining the block group aggregated data to the both table
-blocks = blocks.merge(blockgrouptot, on = 'Block Group', how = 'left')
-
 # replacing NA values with zero, for blocks without any jobs
-blocks = blocks.fillna(0)
+blocks = blocks.merge(blockgrouptot, on = 'Block Group', how = 'left').fillna(0)
 
 # converting to GeoDataFrame and writing shapefile
 blocks = gpd.GeoDataFrame(blocks, geometry = 'geometry')
