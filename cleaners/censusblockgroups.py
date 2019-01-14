@@ -41,5 +41,5 @@ mnfips = mnfips.rename(columns={'GEOID': 'BLOCK GROUP'})
 
 mnfips = mnfips.to_crs({'init': 'epsg:26915'})
 # writing shapefile with just the blocks - no data added yet
-# will do that in a different script refresh.py
+# will do that in a different script dataprepper.py
 mnfips.to_file(datadir + 'edited/tcblockgroups/base/twincitiesmetroblockgroups.shp')
