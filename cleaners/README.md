@@ -1,6 +1,6 @@
-Files
+## Files
+- zipcodesmetro.py
 
-zipcodesmetro.py
 This creates a list of zip codes in the seven-county area, which is used to scrape store data
 censusmetroblockgroups.py
 This creates a shapefile containing all Census block groups in the seven-county area
