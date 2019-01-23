@@ -1,15 +1,17 @@
-# Coffee in the Cities: Analysis of the Battleground between Caribou Coffee and Starbucks
+# Coffee in the Cities: Analysis of the Battleground between Caribou, Dunn Brothers, and Starbucks
 
 ## Introduction
-Coffee shops are an occasional treat for some, but an important daily ritual for others. Catering to students, professionals, travelers, and more alike with comfortable seating and warm ambiance, there are plenty of options for those who want a sip prepared for them throughout the Twin Cities. Two players in particular have a formidable presence in the metro: Caribou Coffee and Starbucks Coffee. My goals with this project are to:
+Coffee shops are an occasional treat for some, but an important daily ritual for others. Catering to students, professionals, travelers, and more alike with comfortable seating and warm ambiance, there are plenty of options for those who want a sip prepared for them throughout the Twin Cities. Two players in particular have a formidable presence in the metro: Caribou Coffee and Starbucks Coffee, with Dunn Brothers a close third. My goals with this project are to:
 
-1. Collect store location data for both brands
+1. Collect store location data for all three brands
 
 2. Examine what characteristics are typical for a neighborhood with at least one of the chain coffee shops present
 
 3. Predict where new stores may be opened
 
-4. Determine if there is a difference between Starbucks and Caribou neighborhoods, and subsequently customers
+4. Determine if there is a difference between the brands' locations, and subsequently customers
+
+![Map of Minneapolis area coffee shops](https://github.com/jlweichen/Coffee-in-the-Cities/blob/combo/thirdmap.png)
 
 ### Caribou Coffee
 This chain opened its first shop in Edina on December 14, 1992 - by the way, it's still there at 44th and France. Today, Caribou Coffee still has a huge presence in the Twin Cities in spite of its current owner, JAB Holding Company, having majority interest in other coffee chains as well. Caribou's headquarters is located in Brooklyn Center, and even has a storefront open to the public!
