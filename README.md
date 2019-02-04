@@ -20,18 +20,23 @@ This chain opened its first shop in Edina on December 14, 1992 - by the way, it'
 
 If you need proof of the chain's proliferation in the area, <a href= "https://locations.cariboucoffee.com/us">there are five stores at Mall of America</a>. However, good luck finding a Caribou while wandering outside the Cities. There are a smattering of locations on the East Coast, mainly in popular Southern cities, but Caribou Coffee is unknown in the Mid-Atlantic and New England states. International presence is <a href = 'https://www.cariboucoffee.com/locations/around-the-world?ssl=true'>limited to Asia, Africa, and the Middle East</a>. Some locations are found in supermarkets such as local chain Lunds & Byerlys. <a href = 'https://www.cariboucoffee.com/corporate-folder/our-company/company-info'>More info about Caribou Coffee can be found here</a>.
 </details>
+
 ### Starbucks Coffee
 <details>
 Known worldwide, Starbucks is the home of Pike Place Roast and the originator of the Pumpkin Spice Latte. Whether you are in the United States or abroad, Starbucks locations are ubiquitous, and even the Twin Cities have their fair share - but in terms of number of locations, they are second to Caribou.
 
 In addition to corporate-owned stores, many Starbucks coffee shops are licensed. Of note is that Target, headquartered in Minneapolis, <a href = 'https://progressivegrocer.com/dow-jones-target-plans-put-starbucks-coffee-shops-its-stores'>has agreed with Starbucks to open a licensed location in each new Target store since 2002</a>. For the sake of this analysis I will not differentiate between corporate and licensed stores. <a href = 'https://www.starbucks.com/about-us/company-information'>More info about Starbucks Coffee can be found here</a>.
 </details>
+
 ## Data
+<details>
 I used three main sources of data for this analysis. For the <a href = 'https://locations.cariboucoffee.com/'>Caribou Coffee</a> and <a href ='https://www.starbucks.com/store-locator'>Starbucks Coffee</a> locations, I used their respective websites. For the demographic Census data, I used files provided by the <a href='https://metrocouncil.org/Data-and-Maps.aspx'>Metropolitan Council</a> and Minnesota Geospatial Information Office, made available for download through the <a href='https://gisdata.mn.gov'>Minnesota Geospatial Commons</a>. Specifically, I used the <a href = 'https://gisdata.mn.gov/dataset/us-mn-state-metc-society-census-acs'>cleaned American Community Survey 5-Year Summary File</a> provided by the Metro Council, containing the 2013-2017 five-year ACS estimates for more insight on each zip code's population and demographics. For the zip code and block group shapefiles, I downloaded the Census <a href = 'https://gisdata.mn.gov/dataset/bdry-zip-code-tabulation-areas'>TIGER shapefile</a> for Minnesota zip codes, provided by the Minnesota Geospatial Information Office. I limited my analysis to zip code tabulated areas (ZCTAs) which either wholly or partially fall into one of the seven counties covered by the Metropolitan Council - Anoka, Carver, Dakota, Hennepin, Ramsey, Scott, and Washington.
+</details>
 
 ## Methodology
 
 ### Overall Workflow
+<details>
 1. Download geographic data: 
  - Census.gov for the ZCTA shapefile, Census block shapefiles, ZCTA to county/state flat file, LODES data
  - Metropolitan Council for the ACS five year summary data
@@ -41,9 +46,12 @@ I used three main sources of data for this analysis. For the <a href = 'https://
 5. Use the shapefiles created with dataprepper.py to perform exploratory data anlysis in Tableau
 6. Use the csv created with dataprepper.py for machine learning
 7. Create a list of census blocks which the ML methods indicate are characteristic of those with at least one coffee shop, but do not currently have any
+</details>
 
 ### Step 2: Scraping
+<details>
 The store data was scraped from each store's Store Locator page. I wrote three Python modules which parsed the store locator results for each zip code in the metro via BeautifulSoup, and aggregated them into a Pandas dataframe. These scraper modules can be found at https://github.com/jlweichen/Coffee-in-the-Cities/tree/master/scrapers. For the Starbucks scraper, I utilized the <a href = 'https://developers.google.com/maps/documentation/geocoding/intro'>Google Maps API, specifically the geocode utility</a>, to approximate each zip code as a pair of latitude and longitude coordinates. To use the code as-is, you will need a Google Maps API key. The modules create three data frames and date-stamped CSV files with point location data - one for Caribou, one for Dunn Brothers, and one for Starbucks.
+</details>
 
 ### Step 3: Exploratory Analysis - First Round
 I exported the CSV files into QGis and Tableau for exploratory analysis. I joined this data with the ACS and shapefile data to get a cursory glance. Some stores fell on the outer periphery of the search area, and I used QGis's "Clip" function to curtail my analysis only to those stores that fell within one of the zip code areas of interest. I also used QGis to convert my clipped CSV files into shapefiles, which I was able to import into Tableau. With Tableau, I was able to perform more visual analysis, especially with regards to numerical calculations, though initially I had trouble joining the shape files since the ACS shapefile had zip codes formatted as Unicode strings, while the point location shapefiles QGis created set the zip code column to integer by default. Tableau wouldn't join the columns because they were different data types. Using QGis and Tableau also helped me see where my data sets needed cleaning.
