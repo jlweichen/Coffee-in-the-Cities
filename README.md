@@ -45,7 +45,12 @@ I used three main sources of data for this analysis. For the <a href = 'https://
 4. Run dataprepper.py, which collects the approximately 10 (Caribou) or 50 (Starbucks) closest stores to each zip code, archives store info, and merges store data with Census data to create two shapefiles and one CSV (data changes frequently - stores close, open, move, etc. Starbucks regularly closes stores for remodeling - these stores don't show up when searching the site.)
 5. Use the shapefiles created with dataprepper.py to perform exploratory data anlysis in Tableau
 6. Use the csv created with dataprepper.py for machine learning
-7. Create a list of census blocks which the ML methods indicate are characteristic of those with at least one coffee shop, but do not currently have any
+7. Create a list of census blocks or ZCTAs which the ML methods indicate are characteristic of those with at least one coffee shop, but do not currently have any
+</details>
+
+### Step 1: Prepping
+<details>
+Prior to collecting store data, I made sure I had shapefiles covering the entire seven-county area of interest, as well as Census data at the levels of ZCTA, block group, and block. I also checked the websites of each store to analyze the structure of the HTML output of store location data.
 </details>
 
 ### Step 2: Scraping
@@ -54,14 +59,19 @@ The store data was scraped from each store's Store Locator page. I wrote three P
 </details>
 
 ### Step 3: Exploratory Analysis - First Round
+<details>
 I exported the CSV files into QGis and Tableau for exploratory analysis. I joined this data with the ACS and shapefile data to get a cursory glance. Some stores fell on the outer periphery of the search area, and I used QGis's "Clip" function to curtail my analysis only to those stores that fell within one of the zip code areas of interest. I also used QGis to convert my clipped CSV files into shapefiles, which I was able to import into Tableau. With Tableau, I was able to perform more visual analysis, especially with regards to numerical calculations, though initially I had trouble joining the shape files since the ACS shapefile had zip codes formatted as Unicode strings, while the point location shapefiles QGis created set the zip code column to integer by default. Tableau wouldn't join the columns because they were different data types. Using QGis and Tableau also helped me see where my data sets needed cleaning.
+ </details>
 
 ### Step 3a: Cleaning Data
+<details>
 In QGis and Tableau, I originally joined the store data to the zip code shapefile by the zip code of the store's mailing address. In at least one case, the point location's coordinates fell outside of or adjacent to the boundaries of its' mailing address zip code. In some cases, like a Starbucks in St. Paul with a Minneapolis zip code, this was due to a data error. In other cases, typically those on the edge of a zip code area, it is likely due to the difference between the Census defined ZCTA and the zip codes as assigned by the USPS. I originally wanted to use the zip codes as defined by the stores themselves, but due to the number of discrepancies between store mailing zip codes and the ZCTAs in which stores fell, I decided to analyze stores by the ZCTA in which they were located. This required QGis to join the point shapefile to the ZCTA shapefile.
 
 Finally, I had to make sure my zip code data was properly formatted in QGis before attempting to use it in Tableau. By default, QGis converted my zip code data from Unicode to integer. I had to use the "Refactor fields" geoprocessing tool to make sure my zip codes were considered strings before saving my shapefiles.
+</details>
 
 ### Step 3b: Exploratory Analysis - Second Round
+<details>
 With clean, formatted data I was able to return to Tableau and join my three data sets - the Census data, the Caribou Coffee data, and the Starbucks data. I've begun making some nice visualizations in Tableau, which can be found here:
 
 https://public.tableau.com/profile/jennifer5948#!/vizhome/coffeecities/CoffeeintheCities
@@ -72,10 +82,13 @@ This is a workbook in progress, but I've begun making some visualizations. Of no
 3. The Caribou-only zip codes with the most stores are 55303 in Oak Grove and 55101 in downtown St. Paul, with 4 Caribou and 0 Starbucks.
 4. The Starbucks-only zip code with the most stores is 55104 in St. Paul, with 3 Starbucks and 0 Caribou.
 5. The two closest-together Starbucks are both at the new Hy-Vee in Robbinsdale. One is a drive-thru store and one is within the grocery store. They are only about 575 feet apart!
+</details>
 
 ### Step 4: Machine Learning
+<details>
 Some ideas for using ML with this data:
 1. Predicting the number of coffee shops in a given zip code based on ACS data
 2. Modelling the coverage of Caribou stores vs Starbucks nearest-neighbor
 3. Given a lat and long pair, determine whether a store location built there will be a Starbucks or Caribou store
 4. Finding zip codes that may offer opportunity to open a new store / underserved markets
+</details>
