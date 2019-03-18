@@ -1,5 +1,5 @@
 ## Files
-- zipcodesmetro.py
+- zipcodes.py
 
 This creates a list of zip codes in the seven-county area, which is used to scrape store data
 censusmetroblockgroups.py
