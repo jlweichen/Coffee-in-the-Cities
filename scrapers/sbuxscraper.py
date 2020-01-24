@@ -44,16 +44,20 @@ def soupify(zip):
 # this function needs work
 # need <div id="bootstrapData"> where the coordinates are held
 def storeFind(soup):
-    job = soup.find(id='bootstrapData')
-    return unicode(job.string)
+    pattern = re.compile(r'^\s*\bwindow.__BOOTSTRAP\b')
+    addys = soup.body.find("script", text=pattern).text
+#    need to cut everything after window.__INTL_MESSAGES
+    addys2 = re.sub(r'^\s*\bwindow.__BOOTSTRAP\b\s\=\s', '', addys)
+    addys3 = re.sub(r'\s+\bwindow.__INTL_MESSAGES\b.+\s+.+\s+', '', addys2)
+
+    return json.loads(addys3)
 
 def zipFrame(zip):
     try:
         soupy = soupify(zip)
         biglist = storeFind(soupy)
-        listly = json.loads(biglist)
-        stores = listly['storeLocator']['locationState']['locations']
-        del(listly, biglist)
+        stores = biglist['previousAction']['payload']['data']['stores']
+        del(biglist)
         return pd.io.json.json_normalize(stores, errors = 'ignore')
     except:
         return
@@ -84,6 +88,33 @@ def bigFrame():
                        'address.city':'city'})
     biglist = biglist.drop_duplicates('id')
     biglist['zip code'] = biglist['zip code'].apply(lambda x: x[0:5])
+    biglist['address'] = biglist['address'].apply(lambda x: x.title())
+    # cleaning capitalization on address data
+    biglist['address'] = biglist['address'].apply(lambda x: re.sub('Mn', 'MN', x))
+    # ensuring numerical streets are capitalized correctly
+    def streetLower(match):
+        return match.group(0).lower()
+    def streetUpper(match):
+        return match.group(0).upper()
+    def abbreviator1(match):
+        return match.group(0).replace(' ' , '. ')
+    def abbreviator2(match):
+        return match.group(0) + '.'
+    def abbreviator3(match):
+        return match.group(0).replace('.', '')
+    biglist['address'] = biglist['address'].apply(lambda x: re.sub('(\d[A-Z])', streetLower, x))
+    biglist['address'] = biglist['address'].apply(lambda x: re.sub('Ne | Ne$|Nw | Nw$|Se | Se$|Sw | Sw$|Sr', streetUpper, x))
+    biglist['address'] = biglist['address'].apply(lambda x: re.sub(' S.| N.| E.| W.', abbreviator3, x))
+    biglist['address'] = biglist['address'].apply(lambda x:
+        re.sub('(St )|(Rd )|(Ave )|(Blvd )|(Dr )|(Av )|(Trl )|(Pkwy )|(Ctr )|(Ct )', abbreviator1, x))
+    biglist['address'] = biglist['address'].apply(lambda x:
+        re.sub('( St$)|( Rd$)|( Ave$)|( Blvd$)|( Dr$)|( Av$)|( Trl$)|( Pkwy$)|( Ctr$)|( Ct$)', abbreviator2, x))
+    # street name spelling errors
+    biglist['address'] = biglist['address'].apply(lambda x: re.sub('Gulmack', 'Glumack', x))
+    biglist['address'] = biglist['address'].apply(lambda x: re.sub('Bonker', 'Bunker', x))
+    # same for the city field
+    biglist['city'] = biglist['city'].apply(lambda x: x.title())
+    biglist['city'] = biglist['city'].apply(lambda x: re.sub('St ', abbreviator1, x))    
     biglist['brand'] = 'Starbucks'
     biglist.index = range(0, len(biglist))
     # I know from EDA that there are some stores with incorrect coordinates on the
@@ -95,7 +126,17 @@ def bigFrame():
     biglist.loc[biglist['id']=='1022964', 'longitude'] = -93.325700
     biglist.loc[biglist['id']=='1022984', 'latitude'] = 45.019689
     biglist.loc[biglist['id']=='1022984', 'longitude'] = -93.327546
-    biglist = biglist[['brand', 'id', 'city', 'address', 'zip code', 'latitude', 'longitude', 'features', 'name', 'ownership', 'storeNumber']]
+    
+    # cleaning city info for some stores
+    biglist.loc[biglist['id']=='10142', 'city'] = 'Fridley'
+    biglist.loc[biglist['id']=='11921', 'city'] = 'Crystal'
+    biglist.loc[biglist['id']=='8387', 'city'] = 'Oakdale'
+    biglist.loc[biglist['id']=='9656', 'city'] = 'Oak Park Heights'   
+    biglist.loc[biglist['id']=='8480', 'city'] = 'West St. Paul'
+    
+    
+    biglist = biglist[['brand', 'id', 'city', 'address', 'zip code', 'latitude',
+                       'longitude', 'features', 'name', 'ownership', 'storeNumber']]
     return biglist
 
 # parsing feature names 
@@ -126,11 +167,8 @@ def starFrame():
     big = big.drop(['features'], axis=1)
     # cleaning city name data
 
-    goodcities = {'St.Paul': 'St. Paul', 'ROBBINSDALE': 'Robbinsdale',
-             'Saint Louis Park': 'St. Louis Park', 'St Louis Park': 'St. Louis Park', 
-             'Saint Paul': 'St. Paul', 'St Paul': 'St. Paul',
-             'COTTAGE GROVE': 'Cottage Grove', 'SHAKOPEE': 'Shakopee', 'MINNEAPOLIS': 'Minneapolis',
-             'SAVAGE': 'Savage', 'NORTHFIELD': 'Northfield'}
+    goodcities = {'St.Paul': 'St. Paul', 'Saint Louis Park': 'St. Louis Park', 
+                  'Saint Paul': 'St. Paul'}
     goodindex = goodcities.keys()
 
     for i in range(len(goodindex)):
@@ -138,3 +176,4 @@ def starFrame():
     
     big.to_csv(datadir+ "twincitysbux" + str(datetime.date.today()) + ".csv", index = False)
     return big
+
